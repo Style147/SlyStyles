@@ -39,13 +39,13 @@
 						<td>
 							<ul class="nav navbar-nav navbar-right"  id="dropdown" >
 								<li>
-									<a href="profile.html" target="_blank"><i class="fa fa-camera-retro"></i>&nbsp; Lindsey</a>
+									<a href="profile.html" target="_self"><i class="fa fa-camera-retro"></i>&nbsp; Lindsey</a>
 								</li>
 								<li>
-									<a href="settings.html" target="_blank"><i class="fa fa-gears"></i>&nbsp; Settings</a>
+									<a href="settings.html" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>
 								</li>
 								<li>
-									<a href="logout.html" target="_blank"><i class="fa fa-power-off"></i>&nbsp; Logout</a>
+									<a href="logout.html" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>
 								</li>
 							</ul>
 						</td>
@@ -58,10 +58,22 @@
 
 	<!-- Container for rest feed/list of items  -->
 	<div class="container">
-		<div class="designer-item-page">
+		<div class="designer-item">
 			<div class="designer-item-title">
-				<h2>Brand</h2>
-				<h3>Price</h3>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th class="brand">Brand XYZ</th>
+								<th></th> <!-- this is to keep line weight uniform -->
+							</tr>
+							<tr>
+								<td class="item-name">Sari</td>
+								<td class="price">$4,000</td>
+							</tr>
+						</thead>
+					</table>
+				</div>
 			</div>
 			<div class="thumbnail designer-thumbnail">
 				<a href="#"><img src="images/foo1.jpg" alt="foo1" class="img-responsive"></a>
@@ -74,7 +86,50 @@
 					</p>
 				</div>
 			</div>
-			<div class="alternative-"
+			<div class="alternative-item-list">
+				<!-- alternative item list header bar
+				should have filters -->
+				<div class="button-bar">
+					<p>Sort by: 
+						<a href="#" class="btn btn-default" role="button">Likes</a>
+						<a href="#" class="btn btn-default" role="button">$$$ - $</a>
+						<a href="#" class="btn btn-default" role="button">$ - $$$</a>
+					</p>
+				</div>
+
+				<!-- the actual list of items
+				start of grid -->
+				<div class="alternative-item-grid">
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="thumbnail">
+								<a href="alternative_item.html"><img src="images/foo1.jpg" alt="foo1" class="img-responsive"></a>
+								<div class="caption">
+									<a href="alternative_item.html"><h3>Thumbnail label</h3></a>
+									<p>caption text</p>
+									<p>
+										<a href="#" class="btn btn-primary" role="button">Like</a>
+										<a href="#" class="btn btn-default" role="button">Follow</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="thumbnail">
+								<a href="alternative_item.html"><img src="images/foo1.jpg" alt="foo1" class="img-responsive"></a>
+								<div class="caption">
+									<a href="alternative_item.html"><h3>Thumbnail label</h3></a>
+									<p>caption text</p>
+									<p>
+										<a href="#" class="btn btn-primary" role="button">Like</a>
+										<a href="#" class="btn btn-default" role="button">Follow</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
