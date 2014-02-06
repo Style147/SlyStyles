@@ -22,7 +22,7 @@ app.use(express.compress());
 // whenever they are requested at '/'
 // e.g., http://localhost:3000/index.html
 // maps to /static/index.html on this machine
-app.use(express.static(__dirname + '/static'));
+app.use(express.static(__dirname + '/'));
 
 // Start the server
 var port = process.env.PORT || PORT; // 80 for web, 3000 for development
