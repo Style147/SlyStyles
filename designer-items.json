@@ -1,0 +1,52 @@
+{
+"designerItems": [
+	{
+		"id": 1,
+		"brand": "Payal Singhal",
+		"name": "Lehenga Saree",
+		"image": "http://media.tumblr.com/b24548fb5787ad7368dfcb31192f0173/tumblr_inline_mw5jaagpKO1s1s0bp.jpg",
+		"type": "dress",
+		"description": "tmp"
+	},
+	{
+		"id": 2,
+		"brand": "Sailex Lakme",
+		"name": "Purple Dress",
+		"image": "http://media.tumblr.com/544567d9ef519fa23ddccf3f9beb43dd/tumblr_inline_mskbngrgoE1qz4rgp.jpg",
+		"type": "dress",
+		"description": "tmp"
+	},
+	{
+		"id": 3,
+		"brand": "Prabal Guring",
+		"name": "Dress",
+		"image": "http://media.tumblr.com/fb3f2416ddc32221296062c193f4eda4/tumblr_inline_mrmcj3wrE41qz4rgp.jpg",
+		"type": "dress",
+		"description": "tmp"
+	},
+	{
+		"id": 4,
+		"brand": "Dev R Nil",
+		"name": "Butterfly Jacket",
+		"image": "http://media.tumblr.com/ae3fc144d30e62461c396fc0dc4ba09a/tumblr_inline_mqa0jqTS8A1qz4rgp.jpg",
+		"type": "jacket",
+		"description": "tmp"
+	},
+	{
+		"id": 5,
+		"brand": "Shenali Sema",
+		"name": "Morphe",
+		"image": "http://media.tumblr.com/96c01240631183f06c260e6792ce5b1f/tumblr_inline_mpae3tR1og1qz4rgp.jpg",
+		"type": "dress",
+		"description": "tmp"
+	},
+	{
+		"id": 6,
+		"brand": "Yogesh",
+		"name": "Surendri",
+		"image": "http://24.media.tumblr.com/5252303d74a1309ea1b2e677e7f23298/tumblr_mnr5nnD7mo1su0zheo1_1280.jpg",
+		"type": "dress",
+		"description": "tmp"
+	}
+]
+}
