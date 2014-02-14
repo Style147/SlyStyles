@@ -10,6 +10,7 @@
 	<link href="css/header.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link href="css/slystyles.css" rel="stylesheet">
+	<link href="css/mymatchesmade.css" rel="stylesheet">
 </head>
 
 <body style="padding-top:70px">
@@ -56,6 +57,8 @@
 	</nav>
 
 
+<a href="index.html" target="_self"><i class="fa fa-arrow-left fa-2x"></i>&nbsp; Home</a>
+
 	<!-- Container for rest feed/list of items  -->
 	<div class="container">
 		<div class="designer-item">
@@ -89,7 +92,9 @@
 			<div class="alternative-item-list">
 				<!-- title for section -->
 				<div class="button-bar">
-					<a href="upload.html" class="btn btn-primary" role="button">Upload New Alternative</a>
+					<button class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+  					Upload New Alternative
+					</button>
 					<a href="#" class="btn btn-primary" role="button">Buy</a>
 				</div>
 				
@@ -140,6 +145,48 @@
 			</div>
 		</div>
 	</div>
+
+	!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Upload File</h4>
+      </div>
+      <div class="modal-body hideInput">
+        <div class = "form-group">
+        	<label for = "designer-name" class = "col-lg-2 control-label">Designer: </label>
+        	<div class = "col-lg-8">
+        		<input type  = "text" class = "upload-form form-control" id = "designer" disabled = "true">
+        	</div>
+        	<label for = "description-name" class = "col-lg-2 control-label">Description: </label>
+        	<div class = "col-lg-8">
+        		<input type  = "text" class = "upload-form form-control" id = "designer" disabled = "true">
+        	</div>
+        	<label for = "item-price" class = "col-lg-2 control-label">Price: </label>
+        	<div class = "col-lg-8">
+        		<input type  = "text" class = "upload-form form-control" id = "designer" disabled = "true">
+        	</div>
+        	<label for = "item-tags" class = "col-lg-2 control-label">Tags: </label>
+        	<div class = "col-lg-8">
+        		<input type  = "text" class = "upload-form form-control" id = "designer" disabled = "true">
+        	</div>
+        	<form action="http://www.tipjar.com/cgi-bin/test" enctype="multipart/form-data" method="post">
+            <input type="file" class="upload-form form-control" name="image">
+            <input type="submit" class="upload-form form-control" value="Upload">
+          </form>
+
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
