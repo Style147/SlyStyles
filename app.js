@@ -11,6 +11,8 @@ var handlebars = require('express3-handlebars')
 var index = require('./routes/index');
 var designerItem = require('./routes/designerItem');
 var altItem = require('./routes/altItem');
+var profile = require('./routes/profile');
+var settings = require('./routes/settings');
 // Example route
 // var user = require('./routes/user');
 
@@ -40,6 +42,8 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/designerItem/:id', designerItem.view);
 app.get('/designerItem/:designerID/altItem/:altID', altItem.view);
+app.get('/profile/', profile.view);
+app.get('/settings', settings.view);
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)
