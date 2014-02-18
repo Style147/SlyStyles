@@ -1,7 +1,7 @@
 {
 	"altItems": [
 		{
-			"id": 1,
+			"id": 0,
 			"brand": "Forever 21",
 			"name": "Favorite Bodycon Dress",
 			"image": "http://www.forever21.com/images/1_front_750/00125731-12.jpg",
@@ -11,7 +11,7 @@
 			"price": 0
 		},
 		{
-			"id": 2,
+			"id": 1,
 			"brand": "Forever 21",
 			"name": "Out West Skater Dress",
 			"image": "http://www.forever21.com/images/4_full_750/00065325-10.jpg",
@@ -21,7 +21,7 @@
 			"price": 0
 		},
 		{
-			"id": 3,
+			"id": 2,
 			"brand": "H&M",
 			"name": "Maxi Dress",
 			"image": "http://lp.hm.com/hmprod?set=source[/model/2013/2CV%200187127%20003%2036%202552.jpg],rotate[],width[],height[],x[],y[],type[STILL_LIFE_FRONT]&hmver=1&call=url[file:/product/full]",
@@ -31,7 +31,7 @@
 			"price": 0
 		},
 		{
-			"id": 4,
+			"id": 3,
 			"brand": "H&M",
 			"name": "Short Dres",
 			"image": "http://lp.hm.com/hmprod?set=source[/environment/2014/2FV_0150_013R.jpg],rotate[1.45],width[4191],height[4900],x[586],y[138],type[FASHION_FRONT]&hmver=0&call=url[file:/product/full]",
