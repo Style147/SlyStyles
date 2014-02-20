@@ -27,7 +27,8 @@ exports.view = function(req, res) {
 		 altItemModel.AltItem.find().exec(temp);
 		function temp(err, altItems) {
 			if(err) console.log(err);
-			designerItem.altItems = altItems;
+			designerItem.alts.concat(altItems);
+			console.log('GETTING');
 			console.log(designerItem);
 			res.render('designerItem', designerItem);
 		}
@@ -45,7 +46,7 @@ exports.addDesignerItem = function(req, res) {
 		"image": req.body.imageURL,
 		"type": req.body.type,
 		"likes": 0,
-		"alts": null,
+		"alts": [],
 	});
 	console.log(req.body);
 	newPost.save(afterSaving);
@@ -54,5 +55,38 @@ exports.addDesignerItem = function(req, res) {
   		if(err) {console.log(err); res.send(500); }
   		res.redirect('/');
 	}
+}
+
+exports.addAltItem = function(req, res) {
+	var designerItemID = req.params.designerID;
+	var newAlt = new altItemModel.AltItem({
+		"brand": req.body.brand,
+		"name": req.body.name,
+		"price": parseFloat(req.body.price),
+		"description": req.body.description,
+		"image": req.body.imageURL,
+		"type": req.body.type,
+		"likes": 0,
+	})
+
+	newAlt.save(afterSaving);
+
+	function afterSaving(err) {
+		if(err) { console.log(err); res.send(500); }
+
+		designerItemModel.DesignerItem.update({_id: designerItemID},
+			{$push: {'alts': newAlt._id}},
+			{upsert: true},
+			afterUpdating);
+
+		function afterUpdating(err, data) {
+			if(err) {console.log(err); res.send(500);}
+			console.log('AFTER UPDATE');
+			console.log(data);
+			res.redirect('/designerItem/' + designerItemID);
+		}
+	}
+
+	
 }
 

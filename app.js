@@ -52,7 +52,8 @@ app.get('/designerItem/:id', designerItem.view);
 app.get('/designerItem/:designerID/altItem/:altID', altItem.view);
 app.get('/profile/', profile.view);
 app.get('/settings', userSettings.view);
-app.post('/addItem', designerItem.addDesignerItem);
+app.post('/addDesignerItem', designerItem.addDesignerItem);
+app.post('/designerItem/:designerID/addAltForDesignerItem', designerItem.addAltItem)
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)

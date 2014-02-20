@@ -54,8 +54,8 @@
 
 		<div class="alternative-item-list">
 			<!-- title for section -->
-			<div class="button-bar">
-				<a href="/upload.html" class="btn btn-primary" role="button">Upload New Alternative</a>
+			<div class="input-group">
+				<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Upload New Alternative</button>
 				<a href="#" class="btn btn-primary" role="button">Buy</a>
 			</div>
 
@@ -75,7 +75,7 @@
 			<!-- the actual list of items
 			start of grid -->
 			<div class="alternative-item-grid">
-				{{#each altItems}}
+				{{#each alts}}
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="thumbnail">
@@ -96,6 +96,38 @@
 					</div>
 				</div>
 				{{/each}}
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Upload File</h4>
+				</div>
+				<div class="modal-body hideInput">
+					<div class = "form-group">
+						<form action="/designerItem/{{id}}/addAltForDesignerItem" enctype="multipart/form-data" method="post">
+						Brand:	
+						<input type="text" class="upload-form form-control" id="brand" name="brand"> <br>
+						Name: 
+						<input type="text" class="upload-form form-control" id="name" name="name"> <br>
+						Price:	
+						<input type="text" class="upload-form form-control" id="price" name="price"> <br>
+						Description: 
+						<input type="text" class="upload-form form-control" id="description" name="description"> <br>
+						Image URL:	
+						<input type="text" class="upload-form form-control" id="imageURL" name="imageURL"> <br>
+						Style (e.g. Dress): 
+						<input type="text" class="upload-form form-control" id="style" name="style"> <br>
+						<input type="submit" class="upload-form form-control" value="Upload">
+						</form>
+
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
