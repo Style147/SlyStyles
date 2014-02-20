@@ -41,13 +41,13 @@
 		</div><!-- /.col-lg-6 -->
 
 		{{#each designerItems}}
-		<div class="designer-item-feed" id="{{id}}">
+		<div class="designer-item-feed" id="{{_id}}">
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="designer-thumbnail thumbnail">
-						<a href="designerItem/{{id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
+						<a href="designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
 						<div class="caption">
-							<a href="designerItem/{{id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
+							<a href="designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
 							<p>{{description}}</p>
 							<p>
 								<a href="#" class="btn btn-primary" role="button">Like</a>

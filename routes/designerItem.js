@@ -1,23 +1,36 @@
-var altItems = require('../alt-items.json');
-var designerItemWrapper = require('../designer-items.json');
+
+var designerItemModel = require('../models/designerItemModel');
+var altItemModel = require('../models/altItemModel');
 
 exports.view = function(req, res) {
 	var itemID = req.params.id;
-	itemID = parseInt(itemID);
 
 	//get the designer item to render
-	var designerItemToShow = designerItemWrapper.designerItems[itemID];
-	console.log(designerItemToShow);
-	//get the alt items to render
-	//   --TODO pick which ones to get
-	var altList = altItems.altItems;
+	designerItemModel.DesignerItem.find({"_id": itemID}).exec(callback);
 
-	//glom together
-	var itemAndAlts = {
-		"designerItem": designerItemToShow,
-		"altList": altList
+	function callback(err, designerItems) {
+		if(err) {
+			console.log(err);
+			res.send(500);
+		}
+		var designerItem = designerItems[0];
+
+		
+
+		/**
+		 * The below code just adds all of the alt items we have as alts
+		 * for this designerItem.
+		 * TODO: it should be iterating over the alts array of ObjectId in
+		 * designerItem and just getting those
+		 */
+		 altItemModel.AltItem.find().exec(temp);
+		function temp(err, altItems) {
+			if(err) console.log(err);
+			designerItem.altItems = altItems;
+			console.log(designerItem);
+			res.render('designerItem', designerItem);
+		}
+		//res.render('designerItem', designerItems[0]);
 	}
-	
-	//pass through
-	res.render('designerItem', itemAndAlts);
+
 }

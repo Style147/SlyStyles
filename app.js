@@ -7,14 +7,21 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
+var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var designerItem = require('./routes/designerItem');
 var altItem = require('./routes/altItem');
 var profile = require('./routes/profile');
-var settings = require('./routes/settings');
+var userSettings = require('./routes/settings');
 // Example route
 // var user = require('./routes/user');
+
+// create database and connect
+var local_database_name = 'slystylesTestDB';
+var local_database_uri  = 'mongodb://localhost/' + local_database_name
+var database_uri = process.env.MONGOLAB_URI || local_database_uri
+mongoose.connect(database_uri);
 
 var app = express();
 
@@ -43,7 +50,7 @@ app.get('/', index.view);
 app.get('/designerItem/:id', designerItem.view);
 app.get('/designerItem/:designerID/altItem/:altID', altItem.view);
 app.get('/profile/', profile.view);
-app.get('/settings', settings.view);
+app.get('/settings', userSettings.view);
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)
