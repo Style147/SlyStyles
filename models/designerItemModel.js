@@ -11,8 +11,4 @@ DesignerItemSchema = mongoose.Schema({
 	"alts": [mongoose.Schema.Types.ObjectId]
 });
 
-exports.addDesignerItem = function(req, res) {
-	alert("not yet implemented"); //TODO
-}
-
 exports.DesignerItem = mongoose.model('DesignerItem', DesignerItemSchema);

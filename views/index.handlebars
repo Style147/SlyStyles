@@ -71,31 +71,22 @@
 				</div>
 				<div class="modal-body hideInput">
 					<div class = "form-group">
-						<label for = "designer-name" class = "col-lg-2 control-label">Designer: </label>
-						<div class = "col-lg-8">
-							<input type  = "text" class = "upload-form form-control" id = "designer" disabled = "true">
-						</div>
-						<label for = "description-name" class = "col-lg-2 control-label">Description: </label>
-						<div class = "col-lg-8">
-							<input type  = "text" class = "upload-form form-control" id = "designer" disabled = "true">
-						</div>
-						<label for = "item-price" class = "col-lg-2 control-label">Price: </label>
-						<div class = "col-lg-8">
-							<input type  = "text" class = "upload-form form-control" id = "designer" disabled = "true">
-						</div>
-						<label for = "item-tags" class = "col-lg-2 control-label">Tags: </label>
-						<div class = "col-lg-8">
-							<input type  = "text" class = "upload-form form-control" id = "designer" disabled = "true">
-						</div>
-						<form action="http://www.tipjar.com/cgi-bin/test" enctype="multipart/form-data" method="post">
-							<input type="file" class="upload-form form-control" name="image">
-							<input type="submit" class="upload-form form-control" value="Upload">
+						<form action="/addItem" enctype="multipart/form-data" method="post">
+						Brand:	
+						<input type="text" class="upload-form form-control" id="brand" name="brand"> <br>
+						Name: 
+						<input type="text" class="upload-form form-control" id="name" name="name"> <br>
+						Price:	
+						<input type="text" class="upload-form form-control" id="price" name="price"> <br>
+						Description: 
+						<input type="text" class="upload-form form-control" id="description" name="description"> <br>
+						Image URL:	
+						<input type="text" class="upload-form form-control" id="imageURL" name="imageURL"> <br>
+						Style (e.g. Dress): 
+						<input type="text" class="upload-form form-control" id="style" name="style"> <br>
+						<input type="submit" class="upload-form form-control" value="Upload">
 						</form>
 
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
 					</div>
 				</div>
 			</div>

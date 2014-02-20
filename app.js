@@ -35,6 +35,7 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+app.use(express.bodyParser());
 app.use(express.cookieParser('Intro HCI secret key'));
 app.use(express.session());
 app.use(app.router);
@@ -51,6 +52,7 @@ app.get('/designerItem/:id', designerItem.view);
 app.get('/designerItem/:designerID/altItem/:altID', altItem.view);
 app.get('/profile/', profile.view);
 app.get('/settings', userSettings.view);
+app.post('/addItem', designerItem.addDesignerItem);
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)

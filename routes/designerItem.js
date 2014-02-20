@@ -2,6 +2,7 @@
 var designerItemModel = require('../models/designerItemModel');
 var altItemModel = require('../models/altItemModel');
 
+
 exports.view = function(req, res) {
 	var itemID = req.params.id;
 
@@ -34,3 +35,24 @@ exports.view = function(req, res) {
 	}
 
 }
+
+exports.addDesignerItem = function(req, res) {
+	var newPost = new designerItemModel.DesignerItem({
+		"brand": req.body.brand,
+		"name": req.body.name,
+		"price": parseFloat(req.body.price),
+		"description": req.body.description,
+		"image": req.body.imageURL,
+		"type": req.body.type,
+		"likes": 0,
+		"alts": null,
+	});
+	console.log(req.body);
+	newPost.save(afterSaving);
+
+	function afterSaving(err) { // this is a callback
+  		if(err) {console.log(err); res.send(500); }
+  		res.redirect('/');
+	}
+}
+
