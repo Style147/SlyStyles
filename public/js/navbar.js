@@ -1,10 +1,11 @@
-
-
+var yourVariable = '<%= Session["name"] %>';
+console.log(yourVariable);
 //make sure body has padding for navbar
 $('body').css('padding-top','70px');
 
 //add in navbar code at the beginning of the body
-$('body').prepend('<!-- Nav Bar at top -->'
+function addNavBar(){
+	$('body').prepend('<!-- Nav Bar at top -->'
 	+'<nav class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">'
 	+'<div class="container" >'
 		+'<!-- Brand and toggle get grouped for better mobile display -->'
@@ -42,3 +43,6 @@ $('body').prepend('<!-- Nav Bar at top -->'
 		+'</div><!-- /.navbar-collapse -->'
 	+'</div>'
 +'</nav>');
+
+}
+

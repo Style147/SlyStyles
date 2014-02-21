@@ -53,7 +53,7 @@ exports.addDesignerItem = function(req, res) {
 
 	function afterSaving(err) { // this is a callback
   		if(err) {console.log(err); res.send(500); }
-  		res.redirect('/');
+  		res.redirect('/frontPage');
 	}
 }
 

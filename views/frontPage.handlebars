@@ -1,0 +1,104 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>SlyStyles</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="/css/header.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link href="/css/slystyles.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	
+	<script type='text/javascript' src='/js/navbar.js'></script>
+	<script>
+	var yourVariable = '<%= Session["SessionVariableName"] %>';
+	console.log(document.cookie);
+	
+	addNavBar();
+	</script>
+
+
+	<!-- Container for rest feed/list of items  -->
+	<div class="container">
+		<!-- upload button -->
+		<div class="col-lg-6">
+			<div class="input-group  center"><button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Upload Designer Item </button>
+			</div>
+		</div>
+		
+		<!-- search bar -->
+		<div class="col-lg-6">
+			<div class="input-group">
+				<input type="text" class="form-control">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">Go!</button>
+				</span>
+			</div><!-- /input-group -->
+		</div><!-- /.col-lg-6 -->
+
+		{{#each designerItems}}
+		<div class="designer-item-feed" id="{{_id}}">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="designer-thumbnail thumbnail">
+						<a href="designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
+						<div class="caption">
+							<a href="designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
+							<p>{{description}}</p>
+							<p>
+								<a href="#" class="btn btn-primary" role="button">Like</a>
+								<a href="#" class="btn btn-primary" role="button">Follow</a>
+							</p>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Upload File</h4>
+				</div>
+				<div class="modal-body hideInput">
+					<div class = "form-group">
+						<form action="/addDesignerItem" enctype="multipart/form-data" method="post">
+						Brand:	
+						<input type="text" class="upload-form form-control" id="brand" name="brand"> <br>
+						Name: 
+						<input type="text" class="upload-form form-control" id="name" name="name"> <br>
+						Price:	
+						<input type="text" class="upload-form form-control" id="price" name="price"> <br>
+						Description: 
+						<input type="text" class="upload-form form-control" id="description" name="description"> <br>
+						Image URL:	
+						<input type="text" class="upload-form form-control" id="imageURL" name="imageURL"> <br>
+						Style (e.g. Dress): 
+						<input type="text" class="upload-form form-control" id="style" name="style"> <br>
+						<input type="submit" class="upload-form form-control" value="Upload">
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

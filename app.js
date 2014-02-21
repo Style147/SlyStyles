@@ -14,6 +14,8 @@ var designerItem = require('./routes/designerItem');
 var altItem = require('./routes/altItem');
 var profile = require('./routes/profile');
 var userSettings = require('./routes/settings');
+var user = require('./routes/user');
+var frontPage = require('./routes/frontPage');
 // Example route
 // var user = require('./routes/user');
 
@@ -54,6 +56,8 @@ app.get('/profile/', profile.view);
 app.get('/settings', userSettings.view);
 app.post('/addDesignerItem', designerItem.addDesignerItem);
 app.post('/designerItem/:designerID/addAltForDesignerItem', designerItem.addAltItem)
+app.get('/login', user.login);
+app.get('/frontpage', frontPage.view);
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)

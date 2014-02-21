@@ -14,6 +14,7 @@
 var mongoose = require('mongoose');
 var DesignerItemModel = require('./models/designerItemModel');
 var AltItemModel = require('./models/altItemModel');
+var UserModel = require('./models/userModel');
 
 // Connect to the Mongo database, whether locally or on Heroku
 // MAKE SURE TO CHANGE THE NAME FROM 'lab7' TO ... IN OTHER PROJECTS
@@ -30,6 +31,8 @@ var designer_items_json = require('./designer-items.json');
 designer_items_json = designer_items_json.designerItems;
 var alt_items_json = require('./alt-items.json');
 alt_items_json = alt_items_json.altItems;
+var user_json = require('./users.json');
+user_json = user_json.users;
 
 // Step 2: Remove all existing documents
 DesignerItemModel.DesignerItem
@@ -41,6 +44,11 @@ AltItemModel.AltItem
   .find()
   .remove()
   .exec(onceAltClear); // callback to continue at
+
+UserModel.User
+  .find()
+  .remove()
+  .exec(onceUserClear); // callback to continue at
 
 // Step 3: load the data from the JSON file
 function onceDesignerClear(err) {
@@ -80,6 +88,29 @@ function onceAltClear(err) {
 
       to_save_count--;
       console.log(to_save_count + ' alt items left to save');
+      if(to_save_count <= 0) {
+        console.log('DONE');
+      }
+    });
+  }
+}
+
+function onceUserClear(err) {
+  if(err) console.log(err);
+
+  // loop over the items, construct and save an object from each one
+  // Note that we don't care what order these saves are happening in...
+  var to_save_count = user_json.length;
+  for(var i=0; i<user_json.length; i++) {
+    var json = user_json[i];
+    var proj = new UserModel.User(json);
+    console.log(json);
+
+    proj.save(function(err, proj) {
+      if(err) console.log(err);
+
+      to_save_count--;
+      console.log(to_save_count + ' users left to save');
       if(to_save_count <= 0) {
         console.log('DONE');
         // The script won't terminate until the 
