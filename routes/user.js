@@ -20,19 +20,20 @@ exports.login = function(req, res) {
 		}
 		else{
 			req.session.user = selectedUser.name;
-			console.log(req.session);
+			req.session.imageURL = selectedUser.imageURL;
 			console.log(selectedUser);
 			res.redirect('/frontPage');
 		}
 	}
 }	
 
+exports.logout = function(req, res) {
+	delete req.session.name;
+	delete req.session.imageURL;
+	res.redirect('/');
+		
+}	
 
-	//console.log(user);
-	//console.log(password);
-	//get the designer item to render
-	//designerItemModel.DesignerItem.find({"_id": itemID}).exec(callback);
-	//userModel.Des
 
 	
 

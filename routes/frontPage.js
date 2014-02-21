@@ -11,9 +11,13 @@ exports.view = function(req, res){
 			console.log(err);
 			res.send(500);
 		}
+		var toPass = { "user":{ 
+			"name":req.session.user,
+		 	"imageURL":req.session.imageURL},
+		 "designerItems":designerItems };
+		 console.log(toPass);
 		//index.handlebars expects to see a json object with the designerItems attribute
-		designerItems = { "designerItems": designerItems };
-		res.render('frontPage', designerItems);
+		res.render('frontPage', toPass);
 	}
 	
 };

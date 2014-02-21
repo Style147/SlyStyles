@@ -30,7 +30,11 @@ exports.view = function(req, res) {
 			designerItem.alts.concat(altItems);
 			console.log('GETTING');
 			console.log(designerItem);
-			res.render('designerItem', designerItem);
+			var toPass = { "user":{ 
+				"name":req.session.user,
+		 		"imageURL":req.session.imageURL},
+		 		"designerItem":designerItem };
+			res.render('designerItem', toPass);
 		}
 		//res.render('designerItem', designerItems[0]);
 	}

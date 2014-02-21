@@ -5,14 +5,16 @@
 			"login": "lindsey",
 			"password": "txa",
 			"myContributions": null,
-			"name": "Lindsey"
+			"name": "Lindsey",
+			"imageURL":""
 		},
 		{
 			"id": 1,
 			"login": "jed",
 			"password": "tan",
 			"myContributions": null,
-			"name": "Jed"
+			"name": "Jed",
+			"imageURL":"http://hoops-nation.com/wp-content/uploads/2012/03/paul_pierce_250.jpg"
 		}
 	]
 }

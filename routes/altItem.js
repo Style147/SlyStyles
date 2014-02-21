@@ -17,7 +17,11 @@ exports.view = function(req, res) {
 		}
 		var altItem = altItems[0];
 		altItem.prevDesignerItemID = req.params.designerID;
-		res.render('altItem', altItem)
+		var toPass = { "user":{ 
+			"name":req.session.user,
+		 	"imageURL":req.session.imageURL},
+		 	"altItem":altItem };
+		res.render('altItem', toPass)
 	}
 	
 	/*

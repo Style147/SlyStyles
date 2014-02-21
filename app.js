@@ -58,6 +58,7 @@ app.post('/addDesignerItem', designerItem.addDesignerItem);
 app.post('/designerItem/:designerID/addAltForDesignerItem', designerItem.addAltItem)
 app.get('/login', user.login);
 app.get('/frontpage', frontPage.view);
+app.get('/logout', user.logout);
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)

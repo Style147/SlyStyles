@@ -4,7 +4,8 @@ console.log(yourVariable);
 $('body').css('padding-top','70px');
 
 //add in navbar code at the beginning of the body
-function addNavBar(){
+function addNavBar(name, url){
+	console.log();
 	$('body').prepend('<!-- Nav Bar at top -->'
 	+'<nav class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">'
 	+'<div class="container" >'
@@ -34,7 +35,7 @@ function addNavBar(){
 								+'<a href="/settings.html" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>'
 							+'</li>'
 							+'<li>'
-								+'<a href="/logout.html" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>'
+								+'<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>'
 							+'</li>'
 						+'</ul>'
 					+'</td>'

@@ -4,7 +4,8 @@ UserSchema = mongoose.Schema({
 	"login": String,
 	"password": String,
 	"myContributions": [mongoose.Schema.Types.ObjectID],
-	"name": String
+	"name": String,
+	"imageURL": String
 });
 
 exports.User = mongoose.model('User', UserSchema);
