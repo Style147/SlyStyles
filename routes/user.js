@@ -32,6 +32,11 @@ exports.logout = function(req, res) {
 	res.redirect('/');
 }
 
+exports.getLikes = function(req, res) {
+	res.redirect('/');
+		
+}	
+
 
 exports.create = function(req, res) {
 	if(req.method === 'POST') {

@@ -27,7 +27,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/">SlyStyles</a>
+				<a class="navbar-brand" href="/frontpage">SlyStyles</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,15 +36,15 @@
 				<table class="wider ">
 					<tr >
 						<td class="leftBar">
-							<img class="smaller" src = {{user.imageURL}}></img>
+							<img class="smaller" src={{user.imageURL}}></img>
 						</td>
 						<td>
 							<ul class="nav navbar-nav navbar-right"  id="dropdown" >
 								<li>
-									<a href="profile.html" target="_self"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
+									<a href="/profile" target="_self"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
 								</li>
 								<li>
-									<a href="settings.html" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>
+									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>
 								</li>
 								<li>
 									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>
@@ -127,7 +127,6 @@
 								<p>{{description}}</p>
 								<p>
 									<a href="#" class="btn btn-primary" role="button">Like</a>
-									<a href="#" class="btn btn-default" role="button">Follow</a>
 								</p>
 							</div>
 						</div>

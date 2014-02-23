@@ -52,7 +52,7 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/designerItem/:id', designerItem.view);
 app.get('/designerItem/:designerID/altItem/:altID', altItem.view);
-app.get('/profile/', profile.view);
+app.get('/profile', profile.view);
 app.get('/settings', userSettings.view);
 app.post('/addDesignerItem', designerItem.addDesignerItem);
 app.post('/designerItem/:designerID/addAltForDesignerItem', designerItem.addAltItem)
@@ -61,6 +61,7 @@ app.get('/frontpage', frontPage.view);
 app.get('/logout', user.logout);
 app.get('/createAccount', user.create);
 app.post('/createAccount', user.create);
+app.get('/likes', user.getLikes);
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)
