@@ -5,6 +5,7 @@ UserSchema = mongoose.Schema({
 	"password": String,
 	"myContributions": [mongoose.Schema.Types.ObjectID],
 	"name": String,
+	"description": String,
 	"imageURL": String
 });
 

@@ -52,7 +52,7 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/designerItem/:id', designerItem.view);
 app.get('/designerItem/:designerID/altItem/:altID', altItem.view);
-app.get('/profile/', profile.view);
+app.get('/profile', profile.view);
 app.get('/settings', userSettings.view);
 app.post('/addDesignerItem', designerItem.addDesignerItem);
 app.post('/designerItem/:designerID/addAltForDesignerItem', designerItem.addAltItem)
