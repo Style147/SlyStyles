@@ -24,16 +24,22 @@ exports.view = function(req, res) {
 		 * TODO: it should be iterating over the alts array of ObjectId in
 		 * designerItem and just getting those
 		 */
-		 altItemModel.AltItem.find().exec(temp);
-		function temp(err, altItems) {
+		altItemModel.AltItem.find({
+			'_id': { $in: designerItem.alts}
+		}).exec(afterGettingAlts);
+
+		function afterGettingAlts(err, altItems) {
+			console.log(altItems);
 			if(err) console.log(err);
-			designerItem.alts.concat(altItems);
-			console.log('GETTING');
-			console.log(designerItem);
-			var toPass = { "user":{ 
-				"name":req.session.user,
-		 		"imageURL":req.session.imageURL},
-		 		"designerItem":designerItem };
+
+			var toPass = { 
+				"user": { 
+					"name": req.session.user,
+		 			"imageURL": req.session.imageURL
+		 		},
+		 		"designerItem": designerItem,
+		 		"altItems": altItems
+		 	};
 			res.render('designerItem', toPass);
 		}
 		//res.render('designerItem', designerItems[0]);

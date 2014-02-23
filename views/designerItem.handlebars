@@ -113,7 +113,7 @@
 			<!-- the actual list of items
 			start of grid -->
 			<div class="alternative-item-grid">
-				{{#each designerItem.alts}}
+				{{#each altItems}}
 				<div class="row">
 					<div class="col-xs-6">
 						<div class="thumbnail">
@@ -148,7 +148,7 @@
 				</div>
 				<div class="modal-body hideInput">
 					<div class = "form-group">
-						<form action="/designerItem/{{designerItem.designerid}}/addAltForDesignerItem" enctype="multipart/form-data" method="post">
+						<form action="/designerItem/{{designerItem._id}}/addAltForDesignerItem" enctype="multipart/form-data" method="post">
 						Brand:	
 						<input type="text" class="upload-form form-control" id="brand" name="brand"> <br>
 						Name: 
