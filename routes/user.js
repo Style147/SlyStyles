@@ -19,6 +19,7 @@ exports.login = function(req, res) {
 			res.redirect('/');
 		}
 		else{
+			req.session.username = selectedUser.login;
 			req.session.user = selectedUser.name;
 			req.session.imageURL = selectedUser.imageURL;
 			console.log(selectedUser);
@@ -28,8 +29,9 @@ exports.login = function(req, res) {
 }	
 
 exports.logout = function(req, res) {
-	delete req.session.name;
+	delete req.session.user;
 	delete req.session.imageURL;
+	delete req.session.username;
 	res.redirect('/');
 		
 }	

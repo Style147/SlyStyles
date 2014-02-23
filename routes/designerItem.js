@@ -34,6 +34,7 @@ exports.view = function(req, res) {
 				"name":req.session.user,
 		 		"imageURL":req.session.imageURL},
 		 		"designerItem":designerItem };
+		 	console.log(toPass);
 			res.render('designerItem', toPass);
 		}
 		//res.render('designerItem', designerItems[0]);
@@ -72,7 +73,7 @@ exports.addAltItem = function(req, res) {
 		"type": req.body.type,
 		"likes": 0,
 	})
-
+	console.log(newAlt);
 	newAlt.save(afterSaving);
 
 	function afterSaving(err) {
@@ -90,6 +91,13 @@ exports.addAltItem = function(req, res) {
 			res.redirect('/designerItem/' + designerItemID);
 		}
 	}
+
+	
+}
+
+exports.like = function(req, res) {
+
+	
 
 	
 }

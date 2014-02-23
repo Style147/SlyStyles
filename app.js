@@ -60,6 +60,7 @@ app.get('/login', user.login);
 app.get('/frontpage', frontPage.view);
 app.get('/logout', user.logout);
 app.get('/likes', user.getLikes);
+app.get('/dlike/:itemID', designerItem.like);
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)
