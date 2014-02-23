@@ -34,6 +34,11 @@ exports.logout = function(req, res) {
 		
 }	
 
+exports.getLikes = function(req, res) {
+	res.redirect('/');
+		
+}	
+
 
 	
 
