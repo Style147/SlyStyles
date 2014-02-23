@@ -1,5 +1,4 @@
 
-var designerItemModel = require('../models/designerItemModel');
 var userModel = require('../models/userModel');
 
 
@@ -7,7 +6,7 @@ exports.login = function(req, res) {
 	var user = req.query.user;
 	var password = req.query.password;
 
-	userModel.User.find({"login": req.query.user, "password": req.query.password}).exec(checkPosts);
+	userModel.User.find({"login": user, "password": password}).exec(checkPosts);
 
 	function checkPosts(err, users){
 		if(err) {
@@ -33,8 +32,7 @@ exports.logout = function(req, res) {
 	delete req.session.imageURL;
 	delete req.session.username;
 	res.redirect('/');
-		
-}	
+}
 
 exports.getLikes = function(req, res) {
 	res.redirect('/');
@@ -42,7 +40,30 @@ exports.getLikes = function(req, res) {
 }	
 
 
-	
+exports.create = function(req, res) {
+	if(req.method === 'POST') {
+		console.log('creating new account');
+		var newUser = new userModel.User({
+			"login": req.body.username,
+			"password": req.body.password,
+			"myContributions": [],
+			"name": req.body.name,
+			"imageURL": req.body.imageURL
+		});
+		console.log('newUser: '+newUser);
+		newUser.save(function(err, savedThing) {
+			if(err) {console.log(err); res.send(500);}
+			console.log('new account saved, logging in');
+			var loginURL = '/login?user='+req.body.username+'&password='+req.body.password;
+			console.log(loginURL);
+			res.redirect(loginURL);
+		});
+	}
+	else if(req.method === 'GET') {
+		console.log('going to create page');
+		res.render('createAccount');
+	}
+}
 
 
 

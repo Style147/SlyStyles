@@ -59,6 +59,8 @@ app.post('/designerItem/:designerID/addAltForDesignerItem', designerItem.addAltI
 app.get('/login', user.login);
 app.get('/frontpage', frontPage.view);
 app.get('/logout', user.logout);
+app.get('/createAccount', user.create);
+app.post('/createAccount', user.create);
 app.get('/likes', user.getLikes);
 app.get('/dlike/:itemID', designerItem.like);
 // Example route
