@@ -14,35 +14,45 @@ exports.view = function(req, res) {
 			console.log(err);
 			res.send(500);
 		}
+		console.log(designerItems);
 		var designerItem = designerItems[0];
-
-		
-
-		/**
-		 * The below code just adds all of the alt items we have as alts
-		 * for this designerItem.
-		 * TODO: it should be iterating over the alts array of ObjectId in
-		 * designerItem and just getting those
-		 */
+		//console.log(designerItem);
+		console.log(designerItem.alts);
 		altItemModel.AltItem.find({
 			'_id': { $in: designerItem.alts}
 		}).exec(afterGettingAlts);
 
 		function afterGettingAlts(err, altItems) {
-			console.log(altItems);
 			if(err) console.log(err);
 
-			var toPass = { 
-				"user": { 
-					"name": req.session.user,
-		 			"imageURL": req.session.imageURL
-		 		},
-		 		"designerItem": designerItem,
-		 		"altItems": altItems
-		 	};
-			res.render('designerItem', toPass);
+			console.log('array of alt items:' + altItems);
+
+			altItemModel.AltItem.find().exec(temp);
+
+			var temp = function(err, stuff) {
+				if(err) {
+					console.log(err);
+					res.send(500);
+				}
+
+				altItems.concat('concatted ' + stuff);
+
+				console.log(altItems);
+
+				var toPass = { 
+					"user": { 
+						"name": req.session.user,
+			 			"imageURL": req.session.imageURL
+			 		},
+			 		"designerItem": designerItem,
+			 		"alts": altItems
+			 	};
+			 	console.log(toPass);
+				res.render('designerItem', toPass);
+
+			}
+
 		}
-		//res.render('designerItem', designerItems[0]);
 	}
 
 }
@@ -77,14 +87,15 @@ exports.addAltItem = function(req, res) {
 		"image": req.body.imageURL,
 		"type": req.body.type,
 		"likes": 0,
-	})
+	});
+	console.log(newAlt);
 
 	newAlt.save(afterSaving);
 
 	function afterSaving(err) {
 		if(err) { console.log(err); res.send(500); }
 
-		designerItemModel.DesignerItem.update({_id: designerItemID},
+		designerItemModel.DesignerItem.update({'_id': designerItemID},
 			{$push: {'alts': newAlt._id}},
 			{upsert: true},
 			afterUpdating);
