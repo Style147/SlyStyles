@@ -22,20 +22,22 @@
 	<div class="container">
 		<h1>Welcome to FashionCents</h1>
 		<h3>Find Centsible alternatives to your favorite designer clothes</h3>
-
+		<br>
+		<h3>Create Account:</h3>
 		<div class = "form-group">
-			<form action="/login" enctype="multipart/form-data" method="get">
-				User:
-				<input type="text" class="upload-form form-control" id="user" name="user"> <br>
-				Login:
+			<form action="/createAccount" enctype="multipart/form-data" method="post">
+				Username:
+				<input type="text" class="upload-form form-control" id="username" name="username"> <br>
+				Password:
 				<input type="password" class="upload-form form-control" id="password" name="password"> <br>
-				<input type="submit" class="upload-form form-control" value="Log In">
+				Name:
+				<input type="text" class="upload-form form-control" id="name" name="name"> <br>
+				Profile Image URL:
+				<input type="text" class="upload-form form-control" id="imageURL" name="imageURL"> <br>
+				<input type="submit" class="upload-form form-control" value="Create Account and Log In">
 			</form>
-
 		</div>
 
-		<a href="/createAccount"><p>Create New Account</p></a>
-		
 	</div>
 
 </body>
