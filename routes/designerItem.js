@@ -90,14 +90,9 @@ exports.addAltItem = function(req, res) {
 		"image": req.body.imageURL,
 		"type": req.body.type,
 		"likes": 0,
-<<<<<<< HEAD
-	})
-	console.log(newAlt);
-=======
 	});
 	console.log(newAlt);
 
->>>>>>> 898d065bc07418f60a0fbc0884cbd1648f9cf234
 	newAlt.save(afterSaving);
 
 	function afterSaving(err) {
