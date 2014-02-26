@@ -4,7 +4,6 @@
 			"id": 0,
 			"login": "lindsey",
 			"password": "txa",
-			"myContributions": null,
 			"name": "Lindsey",
 			"imageURL":"http://upload.wikimedia.org/wikipedia/commons/d/d9/20120712_Mila_Kunis_@_Comic-con_cropped.jpg"
 		},
@@ -12,7 +11,6 @@
 			"id": 1,
 			"login": "jed",
 			"password": "tan",
-			"myContributions": null,
 			"name": "Jed",
 			"imageURL":"http://hoops-nation.com/wp-content/uploads/2012/03/paul_pierce_250.jpg"
 		}

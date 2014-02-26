@@ -11,60 +11,47 @@ exports.view = function(req, res) {
 	designerItemModel.DesignerItem.find({"_id": itemID}).exec(callback);
 
 	function callback(err, designerItems) {
+
 		if(err) {
 			console.log(err);
 			res.send(500);
 		}
-		console.log(designerItems);
-		var designerItem = designerItems[0];
-		//console.log(designerItem);
-		console.log(designerItem.alts);
-		altItemModel.AltItem.find({
-			'_id': { $in: designerItem.alts }
-		}).exec(afterGettingAlts);
+
+		userModel.User.find({'_id':req.session.userid}).exec(foundUser);
 
 
-		function afterGettingAlts(err, altItems) {
-			if(err) console.log(err);
+		function foundUser(err, foundData){
 
-			console.log('array of alt items:' + altItems);
+			var designerItem = designerItems[0];
+			var mydlikes = foundData[0].mydlikes;
+			altItemModel.AltItem.find({
+				'_id': { $in: designerItem.alts }
+			}).exec(afterGettingAlts);
 
-			var toPass = { 
-				"user": { 
-					"name": req.session.user,
-		 			"imageURL": req.session.imageURL
-		 		},
-		 		"designerItem": designerItem,
-		 		"alts": altItems
-		 	};
-		 	console.log(toPass);
-			res.render('designerItem', toPass);
-/*
-			altItemModel.AltItem.find().exec(temp);
 
-			var temp = function(err, stuff) {
-				if(err) {
-					console.log(err);
-					res.send(500);
+			function afterGettingAlts(err, altItems) {
+				if(mydlikes.indexOf(designerItem._id) != -1){
+					designerItem = designerItem.toObject();
+					designerItem.liked = '1';
 				}
-
-				altItems.concat('concatted ' + stuff);
-
-				console.log(altItems);
-
+				if(err) console.log(err);
 				var toPass = { 
 					"user": { 
 						"name": req.session.user,
-			 			"imageURL": req.session.imageURL
-			 		},
-			 		"designerItem": designerItem,
-			 		"alts": altItems
-			 	};
-			 	console.log(toPass);
-				res.render('designerItem', toPass);
+						"imageURL": req.session.imageURL
+					},
+					"designerItem": designerItem,
+					"alts": altItems
+				};
+				
 
+				console.log('array of alt items:' + altItems);
+				
+
+
+				console.log(toPass);
+				res.render('designerItem', toPass);
 			}
-*/
 		}
 
 	}
@@ -84,11 +71,18 @@ exports.addDesignerItem = function(req, res) {
 	});
 	console.log(req.body);
 	newPost.save(afterSaving);
+	console.log(newPost);
 
 	function afterSaving(err) { // this is a callback
-		if(err) {console.log(err); res.send(500); }
-		res.redirect('/frontPage');
+		userModel.User.update({'_id': req.session.userid},
+			{$push: {'mydContributions': newPost}},
+			{upsert: true},
+			afterUpdate);
+		function afterUpdate(err){
+			if(err) {console.log(err); res.send(500);}
+		}
 	}
+	res.redirect('/frontpage');
 }
 
 exports.addAltItem = function(req, res) {
@@ -143,33 +137,49 @@ exports.like = function(req, res) {
 		var update = {$inc:{"likes":1}};
 		var options = {multi: false};
 		designerItemModel.DesignerItem.update(conditions, update, options, goodDesigner);
-		
 		function goodDesigner(err){
 			if(err) { console.log(err); res.send(500); }
 		}
-
 		console.log('userid' + req.session.userid);
 		userModel.User.update({'_id': req.session.userid},
 			{$push: {'mydlikes': data[0]}},
 			{upsert: true},
 			afterUpdate);
-
 		function afterUpdate(err){
 			if(err) {console.log(err); res.send(500);}
-
 		}
-
 	}
-
-	
-
-	
 	res.redirect('/frontpage');
+}
 
-
-	//add to the number of likes on that page
+exports.unlike = function(req, res) {
+	var itemID = req.params.itemID;
+	console.log(req.params.itemID);
 	
 
-	
+	//add to users dlikes
+	console.log(req.session);
+
+	designerItemModel.DesignerItem.find({"_id": itemID}).exec(foundDesigner);
+
+	function foundDesigner(err, data){
+
+		var conditions = {"_id":itemID};
+		var update = {$inc:{"likes":-1}};
+		var options = {multi: false};
+		designerItemModel.DesignerItem.update(conditions, update, options, goodDesigner);
+		function goodDesigner(err){
+			if(err) { console.log(err); res.send(500); }
+		}
+		console.log('userid' + req.session.userid);
+		userModel.User.update({'_id': req.session.userid},
+			{$pull: {'mydlikes': data[0]}},
+			{upsert: true},
+			afterUpdate);
+		function afterUpdate(err){
+			if(err) {console.log(err); res.send(500);}
+		}
+	}
+	res.redirect('/frontpage');
 }
 
