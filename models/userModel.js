@@ -5,9 +5,9 @@ var altItemModel = require('../models/altItemModel');
 UserSchema = mongoose.Schema({
 	"login": String,
 	"password": String,
-	"myContributions": [designerItemModel.DesignerItem],
-	"mydlikes": [designerItemModel.DesignerItem],
-	"myalikes": [designerItemModel.AltItem],
+	"myContributions": [mongoose.Schema.Types.ObjectId],
+	"mydlikes": [mongoose.Schema.Types.ObjectId],
+	"myalikes": [mongoose.Schema.Types.ObjectId],
 	"name": String,
 	"description": String,
 	"imageURL": String

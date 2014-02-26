@@ -96,10 +96,12 @@
 		</table>
 	</div>
 	<hr>
-	{{#each dlikes}}
-	<div class="designer-item-feed" id="{{_id}}">
+
+	<div>
+		{{#each mydlikes}}
 		<div class="row">
-			<div class="col-xs-12">
+				
+			<div class="col-xs-6">
 				<div class="designer-thumbnail thumbnail">
 					<a href="designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
 					<div class="caption">
@@ -112,9 +114,12 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
+		{{/each}}
+			
 	</div>
-	{{/each}}
+
 
 	
 </body>

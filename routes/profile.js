@@ -6,7 +6,7 @@ exports.view = function(req, res) {
 
 
 	//get the designer item to render
-	userModel.User.find({"login": req.session.username}).exec(callback);
+	userModel.User.find({"_id": req.session.userid}).exec(callback);
 
 	function callback(err, users) {
 		console.log(users[0]);
@@ -15,12 +15,28 @@ exports.view = function(req, res) {
 			res.send(500);
 		}
 		var user = users[0];
-		var toPass = { "user":{ 
+		
+
+		console.log(user.mydlikes);
+		designerItemModel.DesignerItem.find({
+			'_id': { $in: user.mydlikes}
+		}).exec(afterGettingAlts);
+
+
+		function afterGettingAlts(err, desigItems) {
+			if(err) console.log(err);
+
+			console.log(desigItems);
+			var toPass = { "user":{ 
 			"name":req.session.user,
 			"imageURL":req.session.imageURL},
-			"dlikes": user.mydlikes};
+			"mydlikes":desigItems};
+			console.log(toPass);
+			res.render('profile', toPass);
+
+		}
 			
-		res.render('profile', toPass);
+		
 
 
 
