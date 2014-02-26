@@ -83,6 +83,11 @@
 					<h3>Thumbnail label</h3>
 					<p>{{designerItem.description}}</p>
 					<p><i class="fa fa-heart"> {{designerItem.likes}}</i></p>
+					{{#if buylink}}	
+							<p>
+								<a href="{{buylink}}" class="btn btn-primary" role="button">Buy</a>
+							</p>	
+							{{/if}}
 					<p>
 						<a href="/dlike/{{designerItem.id}}" class="btn btn-primary" role="button">Like</a>
 					</p>

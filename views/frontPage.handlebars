@@ -96,7 +96,12 @@
 							<p><i class="fa fa-heart"> {{likes}}</i></p>
 							<p>
 								<a href="/dlike/{{_id}}" class="btn btn-primary" role="button">Like</a>
+							</p>
+							{{#if buylink}}	
+							<p>
+								<a href="{{buylink}}" class="btn btn-primary" role="button">Buy</a>
 							</p>	
+							{{/if}}
 						</div>
 					</div>
 				</div>
