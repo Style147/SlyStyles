@@ -21,6 +21,7 @@ exports.view = function(req, res) {
 
 
 		function foundUser(err, foundData){
+
 			var designerItem = designerItems[0];
 			var mydlikes = foundData[0].mydlikes;
 			altItemModel.AltItem.find({
@@ -70,11 +71,18 @@ exports.addDesignerItem = function(req, res) {
 	});
 	console.log(req.body);
 	newPost.save(afterSaving);
+	console.log(newPost);
 
 	function afterSaving(err) { // this is a callback
-		if(err) {console.log(err); res.send(500); }
-		res.redirect('/frontPage');
+		userModel.User.update({'_id': req.session.userid},
+			{$push: {'mydContributions': newPost}},
+			{upsert: true},
+			afterUpdate);
+		function afterUpdate(err){
+			if(err) {console.log(err); res.send(500);}
+		}
 	}
+	res.redirect('/frontpage');
 }
 
 exports.addAltItem = function(req, res) {
