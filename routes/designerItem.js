@@ -137,22 +137,17 @@ exports.like = function(req, res) {
 			if(err) { console.log(err); res.send(500); }
 		}
 
-		userModel.User.find({"login": req.session.username}).exec(foundUser);
+		console.log('userid' + req.session.userid);
+		userModel.User.update({'_id': req.session.userid},
+			{$push: {'mydlikes': data[0]}},
+			{upsert: true},
+			afterUpdate);
 
-		function foundUser(err, userD){
-			var user = userD[0];
-			var newDLikes = user.mydlikes.concat(data[0]);
-			console.log(newDLikes);
-			console.log(user);
-			var conditions = {"login":req.session.username};
-			var update = {mydlikes: newDLikes};
-			var options = {multi: false};
-			userModel.User.update(conditions, update, options, goodUser);
+		function afterUpdate(err){
+			if(err) {console.log(err); res.send(500);}
 
-			function goodUser(err){
-				if(err) { console.log(err); res.send(500); }
-			}
 		}
+
 	}
 
 	

@@ -21,7 +21,9 @@ exports.login = function(req, res) {
 			req.session.username = selectedUser.login;
 			req.session.user = selectedUser.name;
 			req.session.imageURL = selectedUser.imageURL;
+			req.session.userid = selectedUser._id;
 			console.log(selectedUser);
+			console.log(req.session.userid);
 			res.redirect('/frontPage');
 		}
 	}
