@@ -93,10 +93,18 @@
 						<div class="caption">
 							<a href="designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
 							<p>{{description}}</p>
+							
+							{{#if liked}}
+							<p><i class="fa fa-heart liked"> {{likes}}</i></p>
+							<p>
+								<a href="/dunlike/{{_id}}" class="btn btn-primary" role="button">Unlike</a>
+							</p>
+							{{else}}
 							<p><i class="fa fa-heart"> {{likes}}</i></p>
 							<p>
 								<a href="/dlike/{{_id}}" class="btn btn-primary" role="button">Like</a>
 							</p>
+							{{/if}}
 							{{#if buylink}}	
 							<p>
 								<a href="{{buylink}}" class="btn btn-primary" role="button">Buy</a>

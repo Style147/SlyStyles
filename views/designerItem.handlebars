@@ -83,11 +83,6 @@
 					<h3>Thumbnail label</h3>
 					<p>{{designerItem.description}}</p>
 					<p><i class="fa fa-heart"> {{designerItem.likes}}</i></p>
-					{{#if buylink}}	
-							<p>
-								<a href="{{buylink}}" class="btn btn-primary" role="button">Buy</a>
-							</p>	
-							{{/if}}
 					<p>
 						<a href="/dlike/{{designerItem.id}}" class="btn btn-primary" role="button">Like</a>
 					</p>
@@ -99,7 +94,9 @@
 			<!-- title for section -->
 			<div class="input-group">
 				<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Upload New Alternative</button>
-				<a href="#" class="btn btn-primary" role="button">Buy</a>
+				{{#if designerItem.buylink}}	
+					<a href="{{designerItem.buylink}}" class="btn btn-primary" role="button">Buy</a>
+				{{/if}}
 			</div>
 
 			<p>
