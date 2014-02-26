@@ -63,6 +63,7 @@ app.get('/createAccount', user.create);
 app.post('/createAccount', user.create);
 app.get('/likes', user.getLikes);
 app.get('/dlike/:itemID', designerItem.like);
+app.get('/frontPage/search', frontPage.searchDesignerItems);
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)

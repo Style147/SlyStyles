@@ -16,14 +16,7 @@
 
 <body>
 
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 	
- 
-
-	<script type="text/javascript">
-		$('body').css('padding-top','70px');
-	</script>
 	
 	<nav class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
 		<div class="container" >
@@ -77,10 +70,12 @@
 		<!-- search bar -->
 		<div class="col-lg-6">
 			<div class="input-group">
-				<input type="text" class="form-control">
-				<span class="input-group-btn">
-					<button class="btn btn-default" type="button">Go!</button>
-				</span>
+				<form action="/frontPage/search" method="get">
+					<input type="text" id="searchTextBox" placeholder="Search Designer Items" class="form-control" name="searchText">
+					<span class="input-group-btn">
+						<button class="btn btn-default" id="searchBtn" type="button">Go!</button>
+					</span>
+				</form>
 			</div><!-- /input-group -->
 		</div><!-- /.col-lg-6 -->
 
@@ -141,6 +136,18 @@
 			</div>
 		</div>
 	</div>
+
+
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$('body').css('padding-top','70px');
+	</script>
+	<script src="/js/frontPage.js"></script>
+	
+ 
+
 
 </body>
 
