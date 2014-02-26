@@ -20,7 +20,7 @@ exports.view = function(req, res) {
 		//console.log(designerItem);
 		console.log(designerItem.alts);
 		altItemModel.AltItem.find({
-			'_id': { $in: designerItem.alts}
+			'_id': { $in: designerItem.alts }
 		}).exec(afterGettingAlts);
 
 
@@ -29,6 +29,17 @@ exports.view = function(req, res) {
 
 			console.log('array of alt items:' + altItems);
 
+			var toPass = { 
+				"user": { 
+					"name": req.session.user,
+		 			"imageURL": req.session.imageURL
+		 		},
+		 		"designerItem": designerItem,
+		 		"alts": altItems
+		 	};
+		 	console.log(toPass);
+			res.render('designerItem', toPass);
+/*
 			altItemModel.AltItem.find().exec(temp);
 
 			var temp = function(err, stuff) {
@@ -53,7 +64,7 @@ exports.view = function(req, res) {
 				res.render('designerItem', toPass);
 
 			}
-
+*/
 		}
 
 	}
