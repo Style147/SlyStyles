@@ -82,10 +82,17 @@
 				<div class="caption">
 					<h3>Thumbnail label</h3>
 					<p>{{designerItem.description}}</p>
-					<p><i class="fa fa-heart"> {{designerItem.likes}}</i></p>
-					<p>
-						<a href="/dlike/{{designerItem.id}}" class="btn btn-primary" role="button">Like</a>
-					</p>
+					{{#if designerItem.liked}}
+							<p><i class="fa fa-heart liked"> {{designerItem.likes}}</i></p>
+							<p>
+								<a href="/dunlike/{{_id}}" class="btn btn-primary" role="button">Unlike</a>
+							</p>
+							{{else}}
+							<p><i class="fa fa-heart"> {{designerItem.likes}}</i></p>
+							<p>
+								<a href="/dlike/{{_id}}" class="btn btn-primary" role="button">Like</a>
+							</p>
+					{{/if}}
 				</div>
 			</div>
 		</div>
