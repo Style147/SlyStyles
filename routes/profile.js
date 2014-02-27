@@ -22,23 +22,52 @@ exports.view = function(req, res) {
 			'_id': { $in: user.mydlikes}
 		}).exec(afterGettingAlts);
 
+		function afterGettingAlts(err, desigItems) {
+			if(err) console.log(err);
+
+			console.log(desigItems);
+			var toPass = { "user":{ 
+				"name":req.session.user,
+				"imageURL":req.session.imageURL},
+				"mydlikes":desigItems};
+				console.log(toPass);
+				res.render('profile', toPass);
+
+			}
+		}
+	}
+
+exports.viewcon = function(req, res) {
+
+
+	//get the designer item to render
+	userModel.User.find({"_id": req.session.userid}).exec(callback);
+
+	function callback(err, users) {
+		console.log(users[0]);
+		if(err) {
+			console.log(err);
+			res.send(500);
+		}
+		var user = users[0];
+		
+
+		
+		designerItemModel.DesignerItem.find({
+			'_id': { $in: user.mydContributions}
+		}).exec(afterGettingAlts);
 
 		function afterGettingAlts(err, desigItems) {
 			if(err) console.log(err);
 
 			console.log(desigItems);
 			var toPass = { "user":{ 
-			"name":req.session.user,
-			"imageURL":req.session.imageURL},
-			"mydlikes":desigItems};
-			console.log(toPass);
-			res.render('profile', toPass);
+				"name":req.session.user,
+				"imageURL":req.session.imageURL},
+				"mydContributions":desigItems};
+				console.log(toPass);
+				res.render('profilecon', toPass);
 
+			}
 		}
-			
-		
-
-
-
 	}
-}

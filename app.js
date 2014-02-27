@@ -65,6 +65,7 @@ app.get('/likes', user.getLikes);
 app.get('/dlike/:itemID', designerItem.like);
 app.get('/frontPage/search', frontPage.searchDesignerItems);
 app.get('/dunlike/:itemID', designerItem.unlike);
+app.get('/profilecon', profile.viewcon);
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)

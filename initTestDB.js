@@ -9,12 +9,12 @@
 
   variable matches its value in app.js  Otherwise, you'll have
   initialized the wrong database.
-*/
+  */
 
-var mongoose = require('mongoose');
-var DesignerItemModel = require('./models/designerItemModel');
-var AltItemModel = require('./models/altItemModel');
-var UserModel = require('./models/userModel');
+  var mongoose = require('mongoose');
+  var DesignerItemModel = require('./models/designerItemModel');
+  var AltItemModel = require('./models/altItemModel');
+  var UserModel = require('./models/userModel');
 
 // Connect to the Mongo database, whether locally or on Heroku
 // MAKE SURE TO CHANGE THE NAME FROM 'lab7' TO ... IN OTHER PROJECTS
@@ -36,16 +36,16 @@ user_json = user_json.users;
 
 // Step 2: Remove all existing documents
 DesignerItemModel.DesignerItem
-  .find()
-  .remove()
+.find()
+.remove()
   .exec(onceDesignerClear); // callback to continue at
 
-AltItemModel.AltItem
+  AltItemModel.AltItem
   .find()
   .remove()
   .exec(onceAltClear); // callback to continue at
 
-UserModel.User
+  UserModel.User
   .find()
   .remove()
   .exec(onceUserClear); // callback to continue at
@@ -60,21 +60,33 @@ function onceDesignerClear(err) {
   for(var i=0; i<designer_items_json.length; i++) {
     var json = designer_items_json[i];
     var proj = new DesignerItemModel.DesignerItem(json);
-
     proj.save(function(err, proj) {
       if(err) console.log(err);
-
-      to_save_count--;
-      console.log(to_save_count + ' designer items left to save');
-      if(to_save_count <= 0) {
-        console.log('DONE');
-      }
+      
+        console.log('hi');
+        var to_save_count = alt_items_json.length;
+        for(var j=0; j<alt_items_json.length; j++) {
+          var json = alt_items_json[i];
+          var nalt = new AltItemModel.AltItem(json);
+          nalt.save(function(err, proj) {
+            console.log(nalt);
+            if(err) console.log(err);
+          });
+          DesignerItemModel.DesignerItem.update({'_id': proj._id},
+            {$push: {'alts': nalt}},
+            {upsert: true},
+            afterUpdate);
+          function afterUpdate(err){
+          }
+        }
+      
     });
+    //console.log(proj);
   }
 }
 
 function onceAltClear(err) {
-  if(err) console.log(err);
+ /* if(err) console.log(err);
 
   // loop over the items, construct and save an object from each one
   // Note that we don't care what order these saves are happening in...
@@ -82,7 +94,6 @@ function onceAltClear(err) {
   for(var i=0; i<alt_items_json.length; i++) {
     var json = alt_items_json[i];
     var proj = new AltItemModel.AltItem(json);
-
     proj.save(function(err, proj) {
       if(err) console.log(err);
 
@@ -92,7 +103,7 @@ function onceAltClear(err) {
         console.log('DONE');
       }
     });
-  }
+}*/
 }
 
 function onceUserClear(err) {

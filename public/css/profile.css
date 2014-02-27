@@ -23,3 +23,7 @@ img.profilePic{
 a{
 	color: #000;
 }
+
+.non-selected{
+	color: #C8C8C8;
+}
