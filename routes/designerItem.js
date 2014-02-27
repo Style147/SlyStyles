@@ -108,6 +108,7 @@ exports.addAltItem = function(req, res) {
 
 	newAlt.save(afterSaving);
 
+
 	function afterSaving(err) {
 		if(err) { console.log(err); res.send(500); }
 
@@ -116,7 +117,15 @@ exports.addAltItem = function(req, res) {
 			{upsert: true},
 			afterUpdating);
 
+
 		function afterUpdating(err, data) {
+			userModel.User.update({'_id': req.session.userid},
+			{$push: {'myaContributions': newAlt}},
+			{upsert: true},
+			afterUpdate);
+			function afterUpdate(err){
+				if(err) {console.log(err); res.send(500);}
+			}
 			if(err) {console.log(err); res.send(500);}
 			console.log('AFTER UPDATE');
 			console.log(data);

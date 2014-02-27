@@ -61,18 +61,27 @@ exports.view = function(req, res) {
 		
 		designerItemModel.DesignerItem.find({
 			'_id': { $in: user.mydContributions}
-		}).exec(afterGettingAlts);
+		}).exec(afterGettingDes);
 
-		function afterGettingAlts(err, desigItems) {
-			if(err) console.log(err);
+		function afterGettingDes(err, desigItems) {
+			altItemModel.AltItem.find({
+				'_id':{$in:user.myaContributions}
+			}).exec(afterGettingAlts);
+			function afterGettingAlts(err, altItems) {
+				if(err) console.log(err);
 
-			console.log(desigItems);
-			var toPass = { "user":{ 
-				"name":req.session.user,
-				"imageURL":req.session.imageURL},
-				"mydContributions":desigItems};
-				console.log(toPass);
-				res.render('profilecon', toPass);
+				var toPass = { "user":{ 
+					"name":req.session.user,
+					"imageURL":req.session.imageURL},
+					"mydContributions":desigItems,
+					"myaContributions":altItems};
+					console.log(toPass);
+					res.render('profilecon', toPass);
+
+				}
+
+
+
 
 			}
 		}
