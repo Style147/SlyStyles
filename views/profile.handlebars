@@ -96,9 +96,33 @@
 		</table>
 	</div>
 	<hr>
-
+	Designer Items
 	<div>
 		{{#each mydlikes}}
+		<div class="row">
+				
+			<div class="col-xs-6">
+				<div class="designer-thumbnail thumbnail">
+					<a href="designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
+					<div class="caption">
+						<a href="designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
+						<p>{{description}}</p>
+						<p><i class="fa fa-heart"> {{likes}}</i></p>
+						<p>
+							<a href="/dlike/{{_id}}" class="btn btn-primary" role="button">Like</a>
+						</p>	
+					</div>
+				</div>
+			</div>
+
+		</div>
+		{{/each}}
+			
+	</div>
+	<hr>
+	Alternative Items
+	<div>
+		{{#each myalikes}}
 		<div class="row">
 				
 			<div class="col-xs-6">

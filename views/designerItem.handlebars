@@ -134,9 +134,18 @@
 									<h5>by {{brand}}</h5>
 								</a>
 								<p>{{description}}</p>
-								<p>
-									<a href="#" class="btn btn-primary" role="button">Like</a>
-								</p>
+								{{#if liked}}
+							<p><i class="fa fa-heart liked"> {{likes}}</i></p>
+							<p>
+								<a href="/aunlike/{{_id}}" class="btn btn-primary" role="button">Unlike</a>
+							</p>
+							{{else}}
+							<p><i class="fa fa-heart"> {{likes}}</i></p>
+							<p>
+								<a href="/alike/{{_id}}" class="btn btn-primary" role="button">Like</a>
+							</p>
+					{{/if}}
+
 							</div>
 						</div>
 					</div>

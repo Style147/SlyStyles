@@ -24,6 +24,7 @@ exports.view = function(req, res) {
 
 			var designerItem = designerItems[0];
 			var mydlikes = foundData[0].mydlikes;
+			var myalikes = foundData[0].myalikes;
 			altItemModel.AltItem.find({
 				'_id': { $in: designerItem.alts }
 			}).exec(afterGettingAlts);
@@ -34,6 +35,13 @@ exports.view = function(req, res) {
 					designerItem = designerItem.toObject();
 					designerItem.liked = '1';
 				}
+				for(var i = 0; i<altItems.length; i++){
+				if(myalikes.indexOf(altItems[i]._id) != -1){
+					altItems[i] = altItems[i].toObject();
+					altItems[i].liked = '1';
+					console.log(designerItems[i]);
+				}
+			}
 				if(err) console.log(err);
 				var toPass = { 
 					"user": { 

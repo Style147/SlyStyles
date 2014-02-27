@@ -66,10 +66,10 @@ function onceDesignerClear(err) {
         console.log('hi');
         var to_save_count = alt_items_json.length;
         for(var j=0; j<alt_items_json.length; j++) {
-          var json = alt_items_json[i];
-          var nalt = new AltItemModel.AltItem(json);
+          var altitem = alt_items_json[j];
+          console.log(altitem);
+          var nalt = new AltItemModel.AltItem(altitem);
           nalt.save(function(err, proj) {
-            console.log(nalt);
             if(err) console.log(err);
           });
           DesignerItemModel.DesignerItem.update({'_id': proj._id},

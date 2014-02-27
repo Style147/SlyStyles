@@ -20,24 +20,30 @@ exports.view = function(req, res) {
 		console.log(user.mydlikes);
 		designerItemModel.DesignerItem.find({
 			'_id': { $in: user.mydlikes}
-		}).exec(afterGettingAlts);
+		}).exec(afterGettingDesigs);
 
-		function afterGettingAlts(err, desigItems) {
+		function afterGettingDesigs(err, desigItems) {
+			altItemModel.AltItem.find({
+				'_id': { $in: user.myalikes}
+			}).exec(afterGettingAlts);
 			if(err) console.log(err);
+			function afterGettingAlts(err, altItems) {
+				var toPass = { "user":{ 
+					"name":req.session.user,
+					"imageURL":req.session.imageURL},
+					"mydlikes":desigItems,
+					"myalikes":altItems};
+					console.log(toPass);
+					res.render('profile', toPass);
 
-			console.log(desigItems);
-			var toPass = { "user":{ 
-				"name":req.session.user,
-				"imageURL":req.session.imageURL},
-				"mydlikes":desigItems};
-				console.log(toPass);
-				res.render('profile', toPass);
-
+				}
 			}
+
+			
 		}
 	}
 
-exports.viewcon = function(req, res) {
+	exports.viewcon = function(req, res) {
 
 
 	//get the designer item to render
