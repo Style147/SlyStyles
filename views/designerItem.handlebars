@@ -14,9 +14,6 @@
 
 <body style="padding-top:70px">
 
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-
 	<nav class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
 		<div class="container" >
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -111,9 +108,9 @@
 			should have filters -->
 			<div class="button-bar">
 				<p>Sort by: 
-					<a href="#" class="btn btn-default" role="button">Likes</a>
-					<a href="#" class="btn btn-default" role="button">$$$ - $</a>
-					<a href="#" class="btn btn-default" role="button">$ - $$$</a>
+					<button class="btn btn-default" role="button" id="filterBtnLikes">Likes</button>
+					<button class="btn btn-default" role="button" id="filterBtnPriceHiLo">$$$ - $</button>
+					<button class="btn btn-default" role="button" id="filterBtnPriceLoHi">$ - $$$</button>
 				</p>
 			</div>
 
@@ -121,7 +118,6 @@
 			start of grid -->
 			<h2>Alternatives Curated:</h2>
 			<div class="alternative-item-grid">
-				
 				<div class="row">
 					{{#each alts}}
 					<div class="col-xs-6">
@@ -129,26 +125,25 @@
 							<a href="/designerItem/{{../designerItem._id}}/altItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
 							<div class="caption">
 								<a href="/designerItem/{{../designerItem._id}}/altItem/{{_id}}">
-									<h3>{{name}}</h3>
+									<h3 class="item-name">{{name}}</h3>
 									<p/>
-									<h5>by {{brand}}</h5>
+									<h5 class="item-brand">by {{brand}}</h5>
+									<p class="item-price">{{price}}</p>
 								</a>
 								{{#if liked}}
-							<p>
-							<p>
-								<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
-							</p>
-							{{else}}
-							<a href="/alike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a>{{likes}}
-							</p>
-					{{/if}}
-
+								<p>
+									<p>
+										<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
+									</p>
+									{{else}}
+									<a href="/alike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a>{{likes}}
+								</p>
+								{{/if}}
 							</div>
 						</div>
 					</div>
 					{{/each}}
 				</div>
-				
 			</div>
 		</div>
 	</div>
@@ -182,6 +177,11 @@
 			</div>
 		</div>
 	</div>
+
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/designerItem.js"></script>
 
 	
 </body>

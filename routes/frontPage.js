@@ -55,12 +55,6 @@ exports.searchDesignerItems = function(req, res) {
 			res.send(500);
 		}
 
-		if(designerItems.length == 0) {
-			designerItems.push({
-				"brand": "No Search Results"
-			});
-		}
-
 		console.log('afterFinding');
 		var toPass = {
 			"user": {
@@ -68,8 +62,12 @@ exports.searchDesignerItems = function(req, res) {
 		 		"imageURL": req.session.imageURL
 		 	},
 		 	"designerItems": designerItems
-		 };
-		 console.log(toPass);
+		};
+		if(designerItems.length == 0) {
+			toPass.noItems = true;
+		}
+		else toPass.noItems = false;
+		console.log(toPass);
 		//index.handlebars expects to see a json object with the designerItems attribute
 		res.render('frontPage', toPass);
 	}
