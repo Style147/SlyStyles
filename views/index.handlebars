@@ -10,6 +10,9 @@
 	<link href="/css/header.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link href="/css/slystyles.css" rel="stylesheet">
+	<link href="/css/index.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,400italic|Playfair+Display:400italic|Unna' rel='stylesheet' type='text/css'>
+
 
 
 </head>
@@ -18,23 +21,35 @@
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-	
-	<div class="container">
-		<h1>Welcome to FashionCents</h1>
-		<h3>Find Centsible alternatives to your favorite designer clothes</h3>
 
+	<div id="banner" style="height: 200px; display: block;">
+		<div class="frontpage" style="background-image: url(http://i58.tinypic.com/ip2oav.jpg); left: 0px; top: 0px;">
+		</div>
+	</div>
+
+	<div class="instructions">
+		<div class="content"> 
+			<h1>HOW IT WORKS:</h1>
+			<p><img src="http://i61.tinypic.com/2u9pemh.jpg">Upload a picture of a piece of clothing that you want the community to help you find a substitute for.</p></img>
+			<p><img src="http://i58.tinypic.com/xcn7uv.jpg">Check back to see what options Fashion Cents users have posted for your uploads.</p>
+			<p><img src="http://i62.tinypic.com/2n8vt4k.jpg">Celebrate! Give back to the community by finding substitutes for others.</p>
+		</div>
+	</div>
+
+
+
+	<div class="container">
 		<div class = "form-group">
+			<h1>LOGIN:</h1>
 			<form action="/login" enctype="multipart/form-data" method="get">
-				User:
-				<input type="text" class="upload-form form-control" id="user" name="user"> <br>
-				Login:
-				<input type="password" class="upload-form form-control" id="password" name="password"> <br>
-				<input type="submit" class="upload-form form-control" value="Log In">
+				<input type="text" class="upload-form form-control" id="user" name="user" placeholder="username"> <br>
+				<input type="password" class="upload-form form-control" id="password" name="password" placeholder="password"> <br>
+				<input type="submit" class="upload-form form-control" value="SUBMIT" id="login">
 			</form>
 
 		</div>
 
-		<a href="/createAccount"><p>Create New Account</p></a>
+		<a href="/createAccount"><h1>REGISTER</h1></a>
 		
 	</div>
 

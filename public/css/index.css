@@ -1,0 +1,75 @@
+.frontpage {
+	position: relative;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: scroll;
+}
+
+/*style="height: 138px; display: block;">*/
+
+
+.instructions {
+	display: block;
+	position: relative;
+	z-index: 0;
+	background-color: #313036;
+	overflow: auto;
+}
+
+.content {
+	max-width: 950px;
+	margin: auto;
+	padding: 20px;
+	z-index: 1;
+	position: relative;
+	text-align: left;
+	overflow: auto;
+}
+
+.instructions h1 {
+	font-family: 'Unna', serif;
+	font-style: italic;
+	color: #e5e8f1;
+}
+
+.instructions p {
+	font-family: 'Lato', sans-serif;
+	color: #e5e8f1;
+}
+
+.instructions img {
+	width: 37px;
+	height: 37px;
+	float: left;
+	margin: 5px 5px 5px 5px;
+}
+
+.container {
+	display: block;
+	position: relative;
+	z-index: 0;
+	background-color: #e5e8f1;
+	overflow: auto;
+}
+
+.container h1 {
+	font-family: 'Unna', serif;
+	color: #313036;
+	text-align: center;
+}
+
+.container a {
+	font-family: 'Unna', serif;
+	color: #313036;
+	text-align: center;
+}
+
+.form-group {
+	max-width: 200px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
