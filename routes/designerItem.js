@@ -17,18 +17,16 @@ exports.view = function(req, res) {
 			res.send(500);
 		}
 
+		var designerItem = designerItems[0];
+
 		userModel.User.find({'_id':req.session.userid}).exec(foundUser);
 
-
 		function foundUser(err, foundData){
-
-			var designerItem = designerItems[0];
 			var mydlikes = foundData[0].mydlikes;
 			var myalikes = foundData[0].myalikes;
 			altItemModel.AltItem.find({
 				'_id': { $in: designerItem.alts }
 			}).exec(afterGettingAlts);
-
 
 			function afterGettingAlts(err, altItems) {
 				if(mydlikes.indexOf(designerItem._id) != -1){
@@ -36,12 +34,12 @@ exports.view = function(req, res) {
 					designerItem.liked = '1';
 				}
 				for(var i = 0; i<altItems.length; i++){
-				if(myalikes.indexOf(altItems[i]._id) != -1){
-					altItems[i] = altItems[i].toObject();
-					altItems[i].liked = '1';
-					console.log(designerItems[i]);
+					if(myalikes.indexOf(altItems[i]._id) != -1){
+						altItems[i] = altItems[i].toObject();
+						altItems[i].liked = '1';
+						console.log(designerItems[i]);
+					}
 				}
-			}
 				if(err) console.log(err);
 				var toPass = { 
 					"user": { 
@@ -52,10 +50,7 @@ exports.view = function(req, res) {
 					"alts": altItems
 				};
 				
-
 				console.log('array of alt items:' + altItems);
-				
-
 
 				console.log(toPass);
 				res.render('designerItem', toPass);
@@ -134,7 +129,6 @@ exports.addAltItem = function(req, res) {
 		}
 	}
 
-	
 }
 
 exports.like = function(req, res) {
@@ -201,3 +195,78 @@ exports.unlike = function(req, res) {
 	res.redirect('back');
 }
 
+exports.filter = function(req, res) {
+	var designerItemID = req.params.designerID;
+	var filterType = req.params.filterType;
+
+	//get the designer item
+	designerItemModel.DesignerItem.find({"_id": designerItemID}).exec(callback);
+
+	function callback(err, designerItems) {
+
+		if(err) {
+			console.log(err);
+			res.send(500);
+		}
+
+		var designerItem = designerItems[0];
+
+		userModel.User.find({'_id':req.session.userid}).exec(foundUser);
+
+		function foundUser(err, foundData){
+
+			if(foundData[0]) {
+				var mydlikes = foundData[0].mydlikes;
+				var myalikes = foundData[0].myalikes;
+			}
+
+			//filter/sort action
+			if(filterType === 'likes') {
+				altItemModel.AltItem.find({
+					'_id': { $in: designerItem.alts }
+				}).sort({likes: -1}).exec(afterGettingAlts);
+			}
+			else if(filterType === 'priceLoHi') {
+				altItemModel.AltItem.find({
+					'_id': { $in: designerItem.alts }
+				}).sort({price: 1}).exec(afterGettingAlts);
+			}
+			else if(filterType === 'priceHiLo') {
+				altItemModel.AltItem.find({
+					'_id': { $in: designerItem.alts }
+				}).sort({price: -1}).exec(afterGettingAlts);
+			}
+
+			function afterGettingAlts(err, altItems) {
+				if(err) console.log(err);
+
+				if(foundData[0]) {
+					if(mydlikes.indexOf(designerItem._id) != -1){
+						designerItem = designerItem.toObject();
+						designerItem.liked = '1';
+					}
+					for(var i = 0; i<altItems.length; i++){
+						if(myalikes.indexOf(altItems[i]._id) != -1){
+							altItems[i] = altItems[i].toObject();
+							altItems[i].liked = '1';
+							console.log(designerItems[i]);
+						}
+					}
+				}
+
+				var toPass = {
+					"designerItem": designerItem,
+					"alts": altItems
+				};
+				
+				console.log('array of alt items:' + altItems);
+
+				console.log(toPass);
+
+				//send the json back
+				res.json(toPass);
+			}
+		}
+
+	}
+}
