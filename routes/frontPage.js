@@ -8,7 +8,7 @@ exports.view = function(req, res){
 	function callback(err, designerItems) {
 		if(err) {
 			console.log(err);
-			res.send(500);
+			res.sessionnd(500);
 		}
 
 		userModel.User.find({'_id':req.session.userid}).exec(foundUser);
@@ -33,7 +33,6 @@ exports.view = function(req, res){
 			res.render('frontPage', toPass);
 
 		}
-
 		
 	}
 	
@@ -43,16 +42,28 @@ exports.searchDesignerItems = function(req, res) {
 	var searchText = req.query.searchText;
 	var regex = new RegExp(searchText, 'i');
 	console.log(regex);
-	designerItemModel.DesignerItem.find({name: regex}, afterFinding);
+	designerItemModel.DesignerItem.find().or([
+		{name: regex},
+		{brand: regex},
+		{description: regex},
+		{type: regex}
+	]).exec(afterFinding);
 
-	var afterFinding = function(err, designerItems) {
+	function afterFinding(err, designerItems) {
 		if(err) {
 			console.log(err);
 			res.send(500);
 		}
+
+		if(designerItems.length == 0) {
+			designerItems.push({
+				"brand": "No Search Results"
+			});
+		}
+
 		console.log('afterFinding');
-		var toPass = { 
-			"user": { 
+		var toPass = {
+			"user": {
 				"name": req.session.user,
 		 		"imageURL": req.session.imageURL
 		 	},
