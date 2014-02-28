@@ -35,7 +35,7 @@ exports.like = function(req, res) {
 			if(err) {console.log(err); res.send(500);}
 		}
 	}
-	res.redirect('/frontpage');
+	res.redirect('back');
 }
 
 exports.view = function(req, res) {
@@ -106,5 +106,5 @@ exports.view = function(req, res) {
 			if(err) {console.log(err); res.send(500);}
 		}
 	}
-	res.redirect('/frontpage');
+	res.redirect('back');
 }

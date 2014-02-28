@@ -43,7 +43,7 @@ exports.view = function(req, res) {
 		}
 	}
 
-	exports.viewcon = function(req, res) {
+exports.viewcon = function(req, res) {
 
 
 	//get the designer item to render
@@ -56,6 +56,8 @@ exports.view = function(req, res) {
 			res.send(500);
 		}
 		var user = users[0];
+		var mydlikes = user.mydlikes;
+		var myalikes = user.myalikes;
 		
 
 		
@@ -64,10 +66,23 @@ exports.view = function(req, res) {
 		}).exec(afterGettingDes);
 
 		function afterGettingDes(err, desigItems) {
+			for(var i = 0; i<desigItems.length; i++){
+				if(mydlikes.indexOf(desigItems[i]._id) != -1){
+					desigItems[i] = desigItems[i].toObject();
+					desigItems[i].liked = '1';
+				}
+			}
+
 			altItemModel.AltItem.find({
 				'_id':{$in:user.myaContributions}
 			}).exec(afterGettingAlts);
 			function afterGettingAlts(err, altItems) {
+				for(var i = 0; i<altItems.length; i++){
+					if(myalikes.indexOf(altItems[i]._id) != -1){
+						altItems[i] = altItems[i].toObject();
+						altItems[i].liked = '1';
+					}
+				}
 				if(err) console.log(err);
 
 				var toPass = { "user":{ 

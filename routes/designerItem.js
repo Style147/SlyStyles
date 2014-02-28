@@ -90,7 +90,7 @@ exports.addDesignerItem = function(req, res) {
 			if(err) {console.log(err); res.send(500);}
 		}
 	}
-	res.redirect('/frontpage');
+	res.redirect('back');
 }
 
 exports.addAltItem = function(req, res) {
@@ -129,7 +129,7 @@ exports.addAltItem = function(req, res) {
 			if(err) {console.log(err); res.send(500);}
 			console.log('AFTER UPDATE');
 			console.log(data);
-			res.redirect('/designerItem/' + designerItemID);
+			res.redirect('back');
 		}
 	}
 
@@ -166,7 +166,7 @@ exports.like = function(req, res) {
 			if(err) {console.log(err); res.send(500);}
 		}
 	}
-	res.redirect('/frontpage');
+	res.redirect('back');
 }
 
 exports.unlike = function(req, res) {
@@ -197,6 +197,6 @@ exports.unlike = function(req, res) {
 			if(err) {console.log(err); res.send(500);}
 		}
 	}
-	res.redirect('/frontpage');
+	res.redirect('back');
 }
 
