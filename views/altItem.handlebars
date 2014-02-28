@@ -59,7 +59,7 @@
 		</div>
 	</nav>
 	
-	<a href="/designerItem/{{prevDesignerItemID}}" target="_self"><i class="fa fa-arrow-left fa-2x"></i>&nbsp; Designer Item</a>
+	
 	<h1><center>Alternative Item</center></h1>
 	<!-- TODO nav links to proper pages as per nav layout in Drive -->
 
@@ -84,8 +84,6 @@
 			<div class="thumbnail designer-thumbnail">
 				<a href="#"><img src="{{altItem.image}}" alt="foo1" class="img-responsive"></a>
 				<div class="caption">
-					<h3>Thumbnail label</h3>
-					<p>{{altItem.description}}</p>
 						{{#if altItem.liked}}
 							<p><i class="fa fa-heart liked"> {{altItem.likes}}</i></p>
 							<p>

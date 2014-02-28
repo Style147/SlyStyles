@@ -61,6 +61,7 @@
 
 	<!-- Container for rest feed/list of items  -->
 	<div class="container">
+		<h1><center>Hot Items</center></h1>
 		<!-- upload button -->
 		<div class="col-lg-6">
 			<div class="input-group  center"><button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Upload Designer Item </button>
@@ -87,7 +88,6 @@
 						<a href="designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
 						<div class="caption">
 							<a href="designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
-							<p>{{description}}</p>
 							
 							{{#if liked}}
 							<p><i class="fa fa-heart liked"> {{likes}}</i></p>

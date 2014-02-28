@@ -20,7 +20,7 @@
 		"type": "dress",
 		"description": "tmp",
 		"caption": "",
-		"price": 0,
+		"price": 250,
 		"likes": 12
 	},
 	{
@@ -31,20 +31,20 @@
 		"type": "dress",
 		"description": "tmp",
 		"caption": "",
-		"price": 0,
+		"price": 120,
 		"likes": 7
 	},
 	{
 		"id": 3,
-		"brand": "Dev R Nil",
-		"name": "Black and nude cropped jacket",
-		"image": "cache.perniaspopupshop.com/media/catalog/product/cache/2/thumbnail/180x/040ec09b1e35df139433887a97daa66f/d/r/drnwfw10135b_a_.jpg",
-		"type": "jacket",
+		"brand": "Omega",
+		"name": "Seamaster Planet Ocean",
+		"image": "http://ep.yimg.com/ca/I/jomashop_2253_840534998",
+		"type": "watch",
 		"description": "tmp",
 		"caption": "",
-		"price": 0,
+		"price": 4465,
 		"likes": 2,
-		"buylink": "http://www.perniaspopupshop.com/designers-1/dev-r-nil/dev-r-nil-black-and-nude-cropped-jacket-drnwfw10135b.html"
+		"buylink": "http://www.jomashop.com/omega-watch-23230422101002.html"
 	},
 	{
 		"id": 4,
@@ -54,7 +54,7 @@
 		"type": "dress",
 		"description": "tmp",
 		"caption": "",
-		"price": 0,
+		"price": 180,
 		"likes": 6,
 		"buylink": "http://www.perniaspopupshop.com/designers-1/morphe-by-shenali-sema/morphe-by-shenali-sema-powder-blue-and-peach-draped-dress-moc0613dr4.html"
 	},
