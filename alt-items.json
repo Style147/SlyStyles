@@ -2,39 +2,27 @@
 	"altItems": [
 		{
 			"id": 0,
-			"brand": "Forever 21",
-			"name": "Favorite Bodycon Dress",
-			"image": "http://www.forever21.com/images/1_front_750/00125731-12.jpg",
-			"type": "dress",
+			"brand": "Aldo Shoes",
+			"name": "Baulch heels",
+			"image": "http://www.aldoshoes.com/static/webUpload/731/26_baulch_80_6.jpg",
+			"type": "shoes",
 			"description": "tmp",
 			"caption": "",
-			"likes": 10,
-			"tags": ["dress"],
-			"price": 0
+			"likes": 4,
+			"tags": ["heels", "Aldo", "shoes"],
+			"price": 39.98
 		},
 		{
-			"id": 1,
-			"brand": "Forever 21",
-			"name": "Out West Skater Dress",
-			"image": "http://www.forever21.com/images/4_full_750/00065325-10.jpg",
-			"type": "dress",
+			"id": 0,
+			"brand": "Aldo Shoes",
+			"name": "Baulch heels",
+			"image": "http://www.aldoshoes.com/static/webUpload/731/26_baulch_80_6.jpg",
+			"type": "shoes",
 			"description": "tmp",
 			"caption": "",
-			"likes": 12,
-			"tags": ["dress"],
-			"price": 0
-		},
-		{
-			"id": 2,
-			"brand": "H&M",
-			"name": "Maxi Dress",
-			"image": "http://lp.hm.com/hmprod?set=source[/model/2013/2CV%200187127%20003%2036%202552.jpg],rotate[],width[],height[],x[],y[],type[STILL_LIFE_FRONT]&hmver=1&call=url[file:/product/full]",
-			"type": "dress",
-			"description": "tmp",
-			"caption": "",
-			"likes": 15,
-			"tags": ["dress"],
-			"price": 0
+			"likes": 4,
+			"tags": ["heels", "Aldo", "shoes"],
+			"price": 39.98
 		},
 		{
 			"id": 3,
