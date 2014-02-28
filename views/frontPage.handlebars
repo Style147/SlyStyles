@@ -10,16 +10,13 @@
 	<link href="/css/header.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link href="/css/slystyles.css" rel="stylesheet">
-
-
 </head>
 
-<body>
+<body style="padding-top: 50px">
 
-	
-	
-	<nav class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
-		<div class="container" >
+	{{#if navbarLikes}}
+	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
+		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -28,6 +25,9 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
+				<div class="navbar-toggle">
+					<a href="/profile"><i class="fa fa-heart fa-2x liked"></i></a>
+				</div>
 				<a class="navbar-brand" href="/frontpage">SlyStyles</a>
 			</div>
 
@@ -35,7 +35,7 @@
 
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<table class="wider ">
-					<tr >
+					<tr>
 						<td class="leftBar">
 							<img class="smaller" src={{user.imageURL}}></img>
 						</td>
@@ -57,6 +57,47 @@
 			</div><!-- /.navbar-collapse -->
 		</div>
 	</nav>
+	{{else}}
+	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
+		<div class="container-fluid" >
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/frontpage">SlyStyles</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<table class="wider ">
+					<tr>
+						<td class="leftBar">
+							<img class="smaller" src={{user.imageURL}}></img>
+						</td>
+						<td>
+							<ul class="nav navbar-nav navbar-right"  id="dropdown" >
+								<li>
+									<a href="/profile" target="_self"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
+								</li>
+								<li>
+									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>
+								</li>
+								<li>
+									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
+	{{/if}}
 
 
 	<!-- Container for rest feed/list of items  -->
@@ -149,9 +190,6 @@
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$('body').css('padding-top','70px');
-	</script>
 	<script src="/js/frontPage.js"></script>
 	
  

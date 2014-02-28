@@ -72,3 +72,39 @@ exports.searchDesignerItems = function(req, res) {
 		res.render('frontPage', toPass);
 	}
 }
+
+exports.viewNavbarLikes = function(req, res) {
+	console.log('experimenting');
+
+	designerItemModel.DesignerItem.find().exec(callback);
+
+	function callback(err, designerItems) {
+		if(err) {
+			console.log(err);
+			res.sessionnd(500);
+		}
+
+		userModel.User.find({'_id':req.session.userid}).exec(foundUser);
+
+
+		function foundUser(err, foundData){
+			var mydlikes = foundData[0].mydlikes;
+			console.log(mydlikes);
+			for(var i = 0; i<designerItems.length; i++){
+				if(mydlikes.indexOf(designerItems[i]._id) != -1){
+					designerItems[i] = designerItems[i].toObject();
+					designerItems[i].liked = '1';
+					console.log(designerItems[i]);
+				}
+			}
+
+			var toPass = { "user":{ 
+			"name":req.session.user,
+		 	"imageURL":req.session.imageURL},
+		 	"designerItems":designerItems };
+			//index.handlebars expects to see a json object with the designerItems attribute
+			toPass.navbarLikes = true;
+			res.render('frontPage', toPass);
+		}	
+	}
+}

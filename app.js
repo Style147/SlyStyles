@@ -59,6 +59,9 @@ app.post('/addDesignerItem', designerItem.addDesignerItem);
 app.post('/designerItem/:designerID/addAltForDesignerItem', designerItem.addAltItem)
 app.get('/login', user.login);
 app.get('/frontpage', frontPage.view);
+// EXPERIMENT
+app.get('/frontpageLikes', frontPage.viewNavbarLikes);
+
 app.get('/logout', user.logout);
 app.get('/createAccount', user.create);
 app.post('/createAccount', user.create);
