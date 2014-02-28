@@ -2,31 +2,6 @@
 "designerItems": [
 	{
 		"id": 0,
-		"brand": "Payal Singhal",
-		"name": "Lehenga Saree",
-		"image": "http://media.tumblr.com/b24548fb5787ad7368dfcb31192f0173/tumblr_inline_mw5jaagpKO1s1s0bp.jpg",
-		"type": "dress",
-		"description": "tmp",
-		"caption": "",
-		"price": 575,
-		"likes": 15,
-		"tags":["dress"],
-		"buylink": "http://www.payalsinghal.com/sarees/mashal-lehenga-saree"
-	},
-	{
-		"id": 1,
-		"brand": "Sailex Lakme",
-		"name": "Purple Dress",
-		"image": "http://media.tumblr.com/544567d9ef519fa23ddccf3f9beb43dd/tumblr_inline_mskbngrgoE1qz4rgp.jpg",
-		"type": "dress",
-		"description": "tmp",
-		"caption": "",
-		"price": 250,
-		"tags":["dress"],
-		"likes": 12
-	},
-	{
-		"id": 2,
 		"brand": "Prabal Guring",
 		"name": "Dress",
 		"image": "http://media.tumblr.com/fb3f2416ddc32221296062c193f4eda4/tumblr_inline_mrmcj3wrE41qz4rgp.jpg",
@@ -38,7 +13,7 @@
 		"likes": 7
 	},
 	{
-		"id": 3,
+		"id": 1,
 		"brand": "Omega",
 		"name": "Seamaster Planet Ocean",
 		"image": "http://ep.yimg.com/ca/I/jomashop_2253_840534998",
@@ -51,28 +26,79 @@
 		"buylink": "http://www.jomashop.com/omega-watch-23230422101002.html"
 	},
 	{
-		"id": 4,
-		"brand": "Shenali Sema",
-		"name": "Morphe",
-		"image": "http://media.tumblr.com/96c01240631183f06c260e6792ce5b1f/tumblr_inline_mpae3tR1og1qz4rgp.jpg",
-		"type": "dress",
-		"description": "tmp",
+		"id": 2,
+		"brand": "Kate Spade",
+		"name": "Licorice Heels",
+		"image": "http://a248.e.akamai.net/f/248/9086/10h/origin-d4.scene7.com/is/image/KateSpade/S1041507V_786?op_sharpen=0&resMode=sharp2&wid=467&fmt=jpg",
+		"type": "shoes",
+		"description":"",
 		"caption": "",
-		"price": 180,
-		"tags":["shirt", "indian"],
-		"likes": 6,
-		"buylink": "http://www.perniaspopupshop.com/designers-1/morphe-by-shenali-sema/morphe-by-shenali-sema-powder-blue-and-peach-draped-dress-moc0613dr4.html"
+		"price": 328,
+		"tags":["shoes", "Kate Spade", "heels"],
+		"likes": 3,
+		"buylink": "http://www.katespade.com/licorice-heels/S1041507V,en_US,pd.html"
+	},
+	{
+		"id": 3,
+		"brand": "Balmain",
+		"name": "Black & Gold Striped Dress",
+		"image": "http://cdn.ssense.com/photos/women/04/1/1/41251F109003_1_1.jpg",
+		"type": "dress",
+		"description":"",
+		"caption": "",
+		"price": 328,
+		"tags":["dress"],
+		"likes": 0,
+		"buylink": "http://www.ssense.com/women/product/balmain/black_and_gold_striped_dress/94609"
+	},
+	{
+		"id": 4,
+		"brand": "Balmain",
+		"name": "Black & Gold Striped Dress",
+		"image": "http://cdn.ssense.com/photos/women/04/1/1/41251F109003_1_1.jpg",
+		"type": "dress",
+		"description":"",
+		"caption": "",
+		"price": 328,
+		"tags":["dress"],
+		"likes": 0,
+		"buylink": "http://www.ssense.com/women/product/balmain/black_and_gold_striped_dress/94609"
 	},
 	{
 		"id": 5,
-		"brand": "Yogesh",
-		"name": "Surendri",
-		"image": "http://24.media.tumblr.com/5252303d74a1309ea1b2e677e7f23298/tumblr_mnr5nnD7mo1su0zheo1_1280.jpg",
-		"type": "dress",
-		"description": "tmp",
-		"price": 98,
-		"tags":["shirt", "expensive"],
-		"likes": 15
+		"brand": "Stella McCartney",
+		"name": "Jacket",
+		"image": "http://media.vogue.com/files/2014/02/20/mfw-street-style-day-1-11_155448229604.jpg",
+		"type": "jacket",
+		"description":"",
+		"caption": "",
+		"price": "",
+		"tags":["dress"],
+		"likes": 0,
+	}
+	{
+		"id": 6,
+		"brand": "Christian Louboutin",
+		"name": "Spike Pumps",
+		"image": "http://www.songofstyle.com/wp-content/uploads/2014/02/aimee_song_christian_louboutin.jpg",
+		"type": "shoes",
+		"description":"",
+		"caption": "",
+		"price": "",
+		"tags":["shoes", "heels", "Christian Louboutin"],
+		"likes": 3,
+	},
+	{
+		"id": 7,
+		"brand": "Valentino",
+		"name": "Double-breasted wool and silk-blend coat",
+		"image": "http://cache.net-a-porter.com/images/products/409324/409324_in_xl.jpg",
+		"type": "jacket",
+		"description":"",
+		"caption": "",
+		"price": 4350,
+		"tags":["jacket", "coat", "wool", "Valentino"],
+		"likes": 5,
 	}
 ]
 }
