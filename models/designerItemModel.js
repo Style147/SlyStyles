@@ -9,6 +9,7 @@ DesignerItemSchema = mongoose.Schema({
 	"type": String,
 	"likes": Number,
 	"buylink": String,
+	"tags": [String],
 	"alts": [mongoose.Schema.Types.ObjectId]
 });
 

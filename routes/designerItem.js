@@ -67,15 +67,15 @@ exports.view = function(req, res) {
 }
 
 exports.addDesignerItem = function(req, res) {
+	var splittags = req.body.tags.split(" ");
 	var newPost = new designerItemModel.DesignerItem({
 		"brand": req.body.brand,
 		"name": req.body.name,
 		"price": parseFloat(req.body.price),
-		"description": req.body.description,
 		"image": req.body.imageURL,
-		"type": req.body.type,
 		"likes": 0,
 		"alts": [],
+		"tags": splittags
 	});
 	console.log(req.body);
 	newPost.save(afterSaving);
