@@ -9,6 +9,7 @@
 			"description": "tmp",
 			"caption": "",
 			"likes": 10,
+			"tags": ["dress"],
 			"price": 0
 		},
 		{
@@ -20,6 +21,7 @@
 			"description": "tmp",
 			"caption": "",
 			"likes": 12,
+			"tags": ["dress"],
 			"price": 0
 		},
 		{
@@ -31,6 +33,7 @@
 			"description": "tmp",
 			"caption": "",
 			"likes": 15,
+			"tags": ["dress"],
 			"price": 0
 		},
 		{
@@ -42,6 +45,7 @@
 			"description": "tmp",
 			"caption": "",
 			"likes": 4,
+			"tags": ["dress"],
 			"price": 0
 		}
 	]
