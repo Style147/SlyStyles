@@ -10,6 +10,7 @@
 		"caption": "",
 		"price": 575,
 		"likes": 15,
+		"tags":["dress"],
 		"buylink": "http://www.payalsinghal.com/sarees/mashal-lehenga-saree"
 	},
 	{
@@ -21,6 +22,7 @@
 		"description": "tmp",
 		"caption": "",
 		"price": 250,
+		"tags":["dress"],
 		"likes": 12
 	},
 	{
@@ -32,6 +34,7 @@
 		"description": "tmp",
 		"caption": "",
 		"price": 120,
+		"tags":["dress"],
 		"likes": 7
 	},
 	{
@@ -43,6 +46,7 @@
 		"description": "tmp",
 		"caption": "",
 		"price": 4465,
+		"tags":["watch", "swiss"],
 		"likes": 2,
 		"buylink": "http://www.jomashop.com/omega-watch-23230422101002.html"
 	},
@@ -55,6 +59,7 @@
 		"description": "tmp",
 		"caption": "",
 		"price": 180,
+		"tags":["shirt", "indian"],
 		"likes": 6,
 		"buylink": "http://www.perniaspopupshop.com/designers-1/morphe-by-shenali-sema/morphe-by-shenali-sema-powder-blue-and-peach-draped-dress-moc0613dr4.html"
 	},
@@ -66,6 +71,7 @@
 		"type": "dress",
 		"description": "tmp",
 		"price": 98,
+		"tags":["shirt", "expensive"],
 		"likes": 15
 	}
 ]

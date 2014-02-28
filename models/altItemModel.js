@@ -8,6 +8,7 @@ AltItemSchema = mongoose.Schema({
 	"type": String,
 	"image": String,
 	"likes": Number,
+	"tags": [String],
 	"designerMatches": [mongoose.Schema.Types.ObjectId]
 });
 

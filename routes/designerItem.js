@@ -94,15 +94,16 @@ exports.addDesignerItem = function(req, res) {
 }
 
 exports.addAltItem = function(req, res) {
+	var splittags = req.body.tags.split(" ");
 	var designerItemID = req.params.designerID;
 	var newAlt = new altItemModel.AltItem({
 		"brand": req.body.brand,
 		"name": req.body.name,
 		"price": parseFloat(req.body.price),
-		"description": req.body.description,
 		"image": req.body.imageURL,
 		"type": req.body.type,
 		"likes": 0,
+		"tags": splittags
 	});
 	console.log(newAlt);
 

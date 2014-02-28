@@ -63,16 +63,16 @@
 	<div class="container">
 		<h1><center>Hot Items</center></h1>
 		<!-- upload button -->
-		<div class="col-lg-6">
+		<div class="col-xs-3">
 			<div class="input-group  center"><button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Upload Designer Item </button>
 			</div>
 		</div>
 		
 		<!-- search bar -->
-		<div class="col-lg-6">
+		<div class="col-xs-6">
 			<div class="input-group">
 				<form action="/frontPage/search" method="get">
-					<input type="text" id="searchTextBox" placeholder="Search Designer Items" class="form-control" name="searchText">
+					<input type="text" id="searchTextBox" placeholder="Search Designer Items" class="form-control" name="searchText"></input>
 					<span class="input-group-btn">
 						<button class="btn btn-default" id="searchBtn" type="button">Go!</button>
 					</span>
@@ -90,14 +90,11 @@
 							<a href="designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
 							
 							{{#if liked}}
-							<p><i class="fa fa-heart liked"> {{likes}}</i></p>
 							<p>
-								<a href="/dunlike/{{_id}}" class="btn btn-primary" role="button">Unlike</a>
+								<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
 							</p>
 							{{else}}
-							<p><i class="fa fa-heart"> {{likes}}</i></p>
-							<p>
-								<a href="/dlike/{{_id}}" class="btn btn-primary" role="button">Like</a>
+							<a href="/dlike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a>{{likes}}
 							</p>
 							{{/if}}
 							{{#if buylink}}	
@@ -105,6 +102,7 @@
 								<a href="{{buylink}}" class="btn btn-primary" role="button">Buy</a>
 							</p>	
 							{{/if}}
+							<p class="tags">tags: {{#each tags}}<a href="/tag/{{.}}">{{.}} </a>{{/each}}</p>
 						</div>
 					</div>
 				</div>

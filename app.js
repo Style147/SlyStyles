@@ -16,6 +16,7 @@ var profile = require('./routes/profile');
 var userSettings = require('./routes/settings');
 var user = require('./routes/user');
 var frontPage = require('./routes/frontPage');
+var tags = require('./routes/tags');
 // Example route
 // var user = require('./routes/user');
 
@@ -68,6 +69,7 @@ app.get('/dunlike/:itemID', designerItem.unlike);
 app.get('/profilecon', profile.viewcon);
 app.get('/alike/:itemID', altItem.like);
 app.get('/aunlike/:itemID', altItem.unlike);
+app.get('/tag/:tag', tags.search);
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)
