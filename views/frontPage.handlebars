@@ -90,14 +90,11 @@
 							<a href="designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
 							
 							{{#if liked}}
-							<p><i class="fa fa-heart liked"> {{likes}}</i></p>
 							<p>
-								<a href="/dunlike/{{_id}}" class="btn btn-primary" role="button">Unlike</a>
+								<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
 							</p>
 							{{else}}
-							<p><i class="fa fa-heart"> {{likes}}</i></p>
-							<p>
-								<a href="/dlike/{{_id}}" class="btn btn-primary" role="button">Like</a>
+							<a href="/dlike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a>{{likes}}
 							</p>
 							{{/if}}
 							{{#if buylink}}	

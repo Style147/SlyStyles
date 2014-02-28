@@ -85,16 +85,13 @@
 				<a href="#"><img src="{{altItem.image}}" alt="foo1" class="img-responsive"></a>
 				<div class="caption">
 						{{#if altItem.liked}}
-							<p><i class="fa fa-heart liked"> {{altItem.likes}}</i></p>
 							<p>
-								<a href="/aunlike/{{altItem._id}}" class="btn btn-primary" role="button">Unlike</a>
+								<a href="/aunlike/{{altItem._id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{altItem.likes}}
 							</p>
 							{{else}}
-							<p><i class="fa fa-heart"> {{altItem.likes}}</i></p>
-							<p>
-								<a href="/alike/{{altItem._id}}" class="btn btn-primary" role="button">Like</a>
+							<a href="/alike/{{altItem._id}}"><i class="fa fa-heart fa-2x unliked"> </i></a>{{altItem.likes}}
 							</p>
-					{{/if}}	
+							{{/if}}
 				</div>
 			</div>
 		</div>
