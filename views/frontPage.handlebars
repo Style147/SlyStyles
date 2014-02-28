@@ -80,6 +80,9 @@
 			</div><!-- /input-group -->
 		</div><!-- /.col-lg-6 -->
 
+		{{#if noItems}}
+		<h4>No Items Match That Search</h4>
+		{{else}}
 		{{#each designerItems}}
 		<div class="designer-item-feed" id="{{_id}}">
 			<div class="row">
@@ -109,6 +112,7 @@
 			</div>
 		</div>
 		{{/each}}
+		{{/if}}
 	</div>
 
 	<!-- Modal -->
