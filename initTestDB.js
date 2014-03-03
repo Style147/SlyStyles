@@ -59,30 +59,32 @@ function onceDesignerClear(err) {
   var to_save_count = designer_items_json.length;
   for(var i=0; i<designer_items_json.length; i++) {
     var json = designer_items_json[i];
+    var altitem = alt_items_json[i];
     var proj = new DesignerItemModel.DesignerItem(json);
-    proj.save(function(err, proj) {
-      if(err) console.log(err);
-      
-        console.log('hi');
-        var to_save_count = alt_items_json.length;
-        for(var j=0; j<alt_items_json.length; j++) {
-          var altitem = alt_items_json[j];
-          console.log(altitem);
-          var nalt = new AltItemModel.AltItem(altitem);
-          nalt.save(function(err, proj) {
-            if(err) console.log(err);
-          });
-          DesignerItemModel.DesignerItem.update({'_id': proj._id},
-            {$push: {'alts': nalt}},
-            {upsert: true},
-            afterUpdate);
-          function afterUpdate(err){
-          }
-        }
-      
+    altitem.designerMatch = proj._id;
+    var altItemObj = new AltItemModel.AltItem(altitem);
+
+    //console.log('i ' + i + ' ');
+   // console.log(altitem);
+   proj.save(function(err, saved) {
+    console.log(saved);
+    if(err) console.log(err);
+
     });
-    //console.log(proj);
-  }
+
+   altItemObj.save(function(err, alternateItem) {
+    if(err) console.log(err);
+    DesignerItemModel.DesignerItem.update({'_id': alternateItem.designerMatch},
+      {$push: {'alts': alternateItem._id}},
+      {upsert: true},
+      afterUpdater);
+    function afterUpdater(err){
+      if(err) console.log(err);
+    }
+    console.log(alternateItem);
+  });
+
+ }
 }
 
 function onceAltClear(err) {
@@ -116,6 +118,7 @@ function onceUserClear(err) {
     var json = user_json[i];
     var proj = new UserModel.User(json);
     console.log(json);
+
 
     proj.save(function(err, proj) {
       if(err) console.log(err);

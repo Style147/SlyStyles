@@ -98,7 +98,8 @@ exports.addAltItem = function(req, res) {
 		"image": req.body.imageURL,
 		"type": req.body.type,
 		"likes": 0,
-		"tags": splittags
+		"tags": splittags,
+		"designerMatch": designerItemID
 	});
 	console.log(newAlt);
 

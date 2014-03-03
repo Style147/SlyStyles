@@ -2,30 +2,6 @@
 	"altItems": [
 		{
 			"id": 0,
-			"brand": "Aldo Shoes",
-			"name": "Baulch heels",
-			"image": "http://www.aldoshoes.com/static/webUpload/731/26_baulch_80_6.jpg",
-			"type": "shoes",
-			"description": "tmp",
-			"caption": "",
-			"likes": 4,
-			"tags": ["heels", "Aldo", "shoes"],
-			"price": 39.98
-		},
-		{
-			"id": 0,
-			"brand": "Aldo Shoes",
-			"name": "Baulch heels",
-			"image": "http://www.aldoshoes.com/static/webUpload/731/26_baulch_80_6.jpg",
-			"type": "shoes",
-			"description": "tmp",
-			"caption": "",
-			"likes": 4,
-			"tags": ["heels", "Aldo", "shoes"],
-			"price": 39.98
-		},
-		{
-			"id": 3,
 			"brand": "H&M",
 			"name": "Short Dres",
 			"image": "http://lp.hm.com/hmprod?set=source[/environment/2014/2FV_0150_013R.jpg],rotate[1.45],width[4191],height[4900],x[586],y[138],type[FASHION_FRONT]&hmver=0&call=url[file:/product/full]",
@@ -34,7 +10,80 @@
 			"caption": "",
 			"likes": 4,
 			"tags": ["dress"],
-			"price": 0
+			"price": 40
+		},
+		{
+			"id": 1,
+			"brand": "Alpha",
+			"name": "Planet Ocean",
+			"image": "http://r.crouzet.free.fr/Ressources/images/ftp/ALPHA/PLANET_OCEAN/ALPHA-PO-black_strap-070709/DSCF7463.JPG",
+			"type": "shoes",
+			"description": "tmp",
+			"caption": "",
+			"likes": 4,
+			"tags": ["watch", "alpha", "chinese"],
+			"price": 99.98
+		},
+		{
+			"id": 2,
+			"brand": "Aldo Shoes",
+			"name": "Baulch heels",
+			"image": "http://www.aldoshoes.com/static/webUpload/731/26_baulch_80_6.jpg",
+			"type": "shoes",
+			"description": "tmp",
+			"caption": "",
+			"likes": 4,
+			"tags": ["heels", "Aldo", "shoes"],
+			"price": 39.98
+		},
+		
+				{
+			"id": 3,
+			"brand": "Lulus",
+			"name": "Bee Jive Gold and Black Striped Dress ",
+			"image": "https://m.lulus.com/images/product/large/116282.jpg",
+			"type": "dress",
+			"description": "tmp",
+			"caption": "",
+			"likes": 4,
+			"tags": ["dress"],
+			"price": 57
+		},
+		{
+			"id": 4,
+			"brand": "Johnston & Murphy",
+			"name": "Melton Oxford",
+			"image": "http://www.styleforum.net/content/type/61/id/560077/width/350/height/700/flags/LL",
+			"type": "shoes",
+			"description": "tmp",
+			"caption": "",
+			"likes": 4,
+			"tags": ["shoes", "mens", "leather"],
+			"price": 108
+		},
+		{
+			"id": 5,
+			"brand": "Jeffrey Campbell",
+			"name": "During Spike High Heel",
+			"image": "http://office.co.uk/images/product/zoom/4772700079_t1.jpg",
+			"type": "shoes",
+			"description": "tmp",
+			"caption": "",
+			"likes": 4,
+			"tags": ["shoes", "heels", "pumps"],
+			"price": 85
+		},
+		{
+			"id": 6,
+			"brand": "Forever 21",
+			"name": "Wool-blend Peacoat",
+			"image": "http://www.forever21.com/images/default_750/27706172-03.jpg",
+			"type": "jacket",
+			"description": "tmp",
+			"caption": "",
+			"likes": 4,
+			"tags": ["jacket", "peacoat", "winter"],
+			"price": 65
 		}
 	]
 }
