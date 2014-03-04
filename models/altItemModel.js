@@ -9,7 +9,7 @@ AltItemSchema = mongoose.Schema({
 	"image": String,
 	"likes": Number,
 	"tags": [String],
-	"designerMatch": mongoose.Schema.Types.ObjectId
+	"designerMatch": [mongoose.Schema.Types.ObjectId]
 });
 
 exports.addAltItem = function(req, res) {
