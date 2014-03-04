@@ -1,0 +1,145 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>SlyStyles</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="/css/header.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link href="/css/slystyles.css" rel="stylesheet">
+	<link href="/css/profile.css" rel="stylesheet">
+</head>
+
+<body style="padding-top:70px">
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+
+	<nav class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
+		<div class="container" >
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/frontpage">SlyStyles</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<table class="wider ">
+					<tr >
+						<td class="leftBar">
+							<img class="smaller" src={{user.imageURL}}></img>
+						</td>
+						<td>
+							<ul class="nav navbar-nav navbar-right"  id="dropdown" >
+								<li>
+									<a href="/profile" target="_self"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
+								</li>
+								<li>
+									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>
+								</li>
+								<li>
+									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
+
+	<div class = "container rel">
+		<div class = "personal">
+			<table class="wider">
+				<tr >
+					<td>
+						<img class="profilePic" src = "{{user.imageURL}}"></img>
+					</td>
+					<td>
+						<ul class="nav navbar-nav navbar-right"  id="dropdown" >
+							<li>
+								<h3>{{user.name}}</h3>
+							</li>
+							<li>
+								I am a fashion junkie. 
+							</li>
+
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<hr>
+	<div class = "container icons">
+		<table class ="middleItems">
+			<tr>
+				<td>
+					<p><a href="/profile"><i class="fa fa-heart fa-5x"></i></a></p>
+					Likes
+				</td>
+				<td>
+					<p><a href="/profilecon"><i class="non-selected fa fa-thumbs-up fa-5x"></i></a></p> Contributions
+				</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	Designer Items
+	<div>
+		{{#each mydlikes}}
+		<div class="row">
+				
+			<div class="col-xs-6">
+				<div class="designer-thumbnail thumbnail">
+					<a href="designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
+					<div class="caption">
+						<a href="designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
+						<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
+					</div>
+				</div>
+			</div>
+
+		</div>
+		{{/each}}
+			
+	</div>
+	<hr>
+	Alternative Items
+	<div>
+		{{#each myalikes}}
+		<div class="row">
+				
+			<div class="col-xs-6">
+				<div class="designer-thumbnail thumbnail">
+					<a href="designerItem/{{designerMatch}}/altItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
+					<div class="caption">
+						<a href="designerItem/{{designerMatch}}/altItem/{_id}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
+							<p>
+								<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
+							</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		{{/each}}
+			
+	</div>
+
+
+	
+</body>
+
+</html>
