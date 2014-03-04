@@ -3,7 +3,7 @@
 		{
 			"id": 0,
 			"brand": "H&M",
-			"name": "Short Dres",
+			"name": "Short Dress",
 			"image": "http://lp.hm.com/hmprod?set=source[/environment/2014/2FV_0150_013R.jpg],rotate[1.45],width[4191],height[4900],x[586],y[138],type[FASHION_FRONT]&hmver=0&call=url[file:/product/full]",
 			"type": "dress",
 			"description": "tmp",
@@ -37,7 +37,7 @@
 			"price": 39.98
 		},
 		
-				{
+		{
 			"id": 3,
 			"brand": "Lulus",
 			"name": "Bee Jive Gold and Black Striped Dress ",

@@ -49,6 +49,8 @@ UserModel.User
 
 
 //this is to deal with the closure in a loop problem
+//returns a function that creates links in the DB between the given designer
+//item and all alts of the same type
 function createLinkerFn(designerItem) {
 	return function() {
 		//get all alt items with same 'type'
