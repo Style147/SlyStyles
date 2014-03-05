@@ -3,16 +3,30 @@
 }
 
 .navbar{
-	background-color:black;
+	font-family: 'Playfair Display', serif;
+
 }
 
 
 .navbar .nav > li > a{
-	color: white;
+	font-size: 20px;
+	color:#efefef !important;
+	font-weight: 100;
+}
+
+.navbar-inner {
+  background-color: #313036;
+  background-image: none;
+  background-repeat: no-repeat;
+
+  filter: none;
 }
 
 .navbar .navbar-brand{
-	color: white;
+	font-family:'Playfair Display', serif;
+	font-weight: 100;
+	font-size: 20px;
+	color:#efefef;
 }
 
 .leftBar{

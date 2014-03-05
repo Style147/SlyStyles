@@ -2,6 +2,21 @@
 
 <html>
 <head>
+	<!-- Google Analytics Content Experiment code -->
+<script>function utmx_section(){}function utmx(){}(function(){var
+k='83001577-0',d=document,l=d.location,c=d.cookie;
+if(l.search.indexOf('utm_expid='+k)>0)return;
+function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+</script><script>utmx('url','A/B');</script>
+<!-- End of Google Analytics Content Experiment code -->
+
 	<title>SlyStyles</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +25,13 @@
 	<link href="/css/header.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link href="/css/slystyles.css" rel="stylesheet">
+	<link href="/css/fonts.css" rel="stylesheet">
 </head>
 
 <body style="padding-top: 50px">
 
 	{{#if navbarLikes}}
-	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inner" role="navigation" id="top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -28,7 +44,7 @@
 				<div class="navbar-toggle">
 					<a href="/profileExp"><i class="fa fa-heart fa-2x liked"></i></a>
 				</div>
-				<a class="navbar-brand" href="/frontpage">SlyStyles</a>
+				<a class="navbar-brand" href="/frontpage">FASHIONCENTS</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,10 +61,10 @@
 									<a href="/profile" target="_self"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
 								</li>
 								<li>
-									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>
+									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; SETTINGS</a>
 								</li>
 								<li>
-									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>
+									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; LOGOUT</a>
 								</li>
 							</ul>
 						</td>
@@ -58,7 +74,7 @@
 		</div>
 	</nav>
 	{{else}}
-	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
+	<nav class="navbar navbar-inverse navbar-fixed-top navbar-inner" role="navigation" id="top">
 		<div class="container-fluid" >
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -68,7 +84,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/frontpage">SlyStyles</a>
+				<a class="navbar-brand t-head" href="/frontpage">FASHIONCENTS</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -82,13 +98,13 @@
 						<td>
 							<ul class="nav navbar-nav navbar-right"  id="dropdown" >
 								<li>
-									<a href="/profile" target="_self"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
+									<a href="/profile" target="_self" class="t-head"><i class="fa fa-angle-left"></i>&nbsp; {{user.name}}</a>
 								</li>
 								<li>
-									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>
+									<a href="/settings" target="_self" class="t-nav"><i class="fa fa-angle-left"></i>&nbsp; SETTINGS</a>
 								</li>
 								<li>
-									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>
+									<a href="/logout" target="_self" class="t-head"><i class="fa fa-angle-left"></i>&nbsp; LOGOUT</a>
 								</li>
 							</ul>
 						</td>
@@ -192,7 +208,16 @@
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/frontPage.js"></script>
 	
- 
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48670740-1', 'slystyles.herokuapp.com');
+  ga('send', 'pageview');
+
+</script>
 
 
 </body>
