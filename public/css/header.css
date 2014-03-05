@@ -3,16 +3,16 @@
 }
 
 .navbar{
-	background-color:black;
+	font-family: 'Playfair Display', serif;
 }
 
 
 .navbar .nav > li > a{
-	color: white;
+	
 }
 
 .navbar .navbar-brand{
-	color: white;
+	
 }
 
 .leftBar{

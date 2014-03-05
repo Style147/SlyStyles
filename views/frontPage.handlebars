@@ -10,12 +10,13 @@
 	<link href="/css/header.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link href="/css/slystyles.css" rel="stylesheet">
+	<link href="/css/fonts.css" rel="stylesheet">
 </head>
 
 <body style="padding-top: 50px">
 
 	{{#if navbarLikes}}
-	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
+	<nav class="navbar navbar-default navbar-fixed-top navWhole" role="navigation" id="top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -28,7 +29,7 @@
 				<div class="navbar-toggle">
 					<a href="/profileExp"><i class="fa fa-heart fa-2x liked"></i></a>
 				</div>
-				<a class="navbar-brand" href="/frontpage">SlyStyles</a>
+				<a class="navbar-brand" href="/frontpage">FASHIONCENTS</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,10 +46,10 @@
 									<a href="/profile" target="_self"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
 								</li>
 								<li>
-									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>
+									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; SETTINGS</a>
 								</li>
 								<li>
-									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>
+									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; LOGOUT</a>
 								</li>
 							</ul>
 						</td>
@@ -58,7 +59,7 @@
 		</div>
 	</nav>
 	{{else}}
-	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
+	<nav class="navbar navbar-inverse navbar-fixed-top navWhole" role="navigation" id="top">
 		<div class="container-fluid" >
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -68,7 +69,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/frontpage">SlyStyles</a>
+				<a class="navbar-brand t-head" href="/frontpage">FASHIONCENTS</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -82,13 +83,13 @@
 						<td>
 							<ul class="nav navbar-nav navbar-right"  id="dropdown" >
 								<li>
-									<a href="/profile" target="_self"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
+									<a href="/profile" target="_self" class="t-head"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
 								</li>
 								<li>
-									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>
+									<a href="/settings" target="_self" class="t-nav"><i class="fa fa-gears"></i>&nbsp; SETTINGS</a>
 								</li>
 								<li>
-									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>
+									<a href="/logout" target="_self" class="t-head"><i class="fa fa-power-off"></i>&nbsp; DISPLAY</a>
 								</li>
 							</ul>
 						</td>
