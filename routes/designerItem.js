@@ -43,7 +43,7 @@ exports.view = function(req, res) {
 				if(err) console.log(err);
 				var toPass = { 
 					"user": { 
-						"name": req.session.user,
+						"name": req.session.user.toUpperCase(),
 						"imageURL": req.session.imageURL
 					},
 					"designerItem": designerItem,

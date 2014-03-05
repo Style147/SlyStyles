@@ -16,7 +16,7 @@
 <body style="padding-top: 50px">
 
 	{{#if navbarLikes}}
-	<nav class="navbar navbar-default navbar-fixed-top navWhole" role="navigation" id="top">
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inner" role="navigation" id="top">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -59,7 +59,7 @@
 		</div>
 	</nav>
 	{{else}}
-	<nav class="navbar navbar-inverse navbar-fixed-top navWhole" role="navigation" id="top">
+	<nav class="navbar navbar-inverse navbar-fixed-top navbar-inner" role="navigation" id="top">
 		<div class="container-fluid" >
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -83,13 +83,13 @@
 						<td>
 							<ul class="nav navbar-nav navbar-right"  id="dropdown" >
 								<li>
-									<a href="/profile" target="_self" class="t-head"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
+									<a href="/profile" target="_self" class="t-head"><i class="fa fa-angle-left"></i>&nbsp; {{user.name}}</a>
 								</li>
 								<li>
-									<a href="/settings" target="_self" class="t-nav"><i class="fa fa-gears"></i>&nbsp; SETTINGS</a>
+									<a href="/settings" target="_self" class="t-nav"><i class="fa fa-angle-left"></i>&nbsp; SETTINGS</a>
 								</li>
 								<li>
-									<a href="/logout" target="_self" class="t-head"><i class="fa fa-power-off"></i>&nbsp; DISPLAY</a>
+									<a href="/logout" target="_self" class="t-head"><i class="fa fa-angle-left"></i>&nbsp; LOGOUT</a>
 								</li>
 							</ul>
 						</td>
