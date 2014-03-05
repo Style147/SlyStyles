@@ -73,3 +73,13 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+#loginGuestLink h1 {
+	border-style: solid;
+	font-family: 'Unna', serif;
+	font-style: italic;
+	font-style: underline;
+	color: #e5e8f1;
+	font-size: xxx-large;
+	text-align: center;
+}
