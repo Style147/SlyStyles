@@ -74,7 +74,7 @@ exports.createGuest = function(req, res) {
 		"password": 'guest',
 		"myContributions": [],
 		"name": 'Guest',
-		"imageURL": 'http://i.imgur.com/S3SY2QB.png'
+		"imageURL": '/images/createAccount.png'
 	});
 	console.log('newGuestUser: '+newUser);
 	newUser.save(function(err, savedThing) {
