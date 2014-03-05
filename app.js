@@ -75,6 +75,8 @@ app.get('/alike/:itemID', altItem.like);
 app.get('/aunlike/:itemID', altItem.unlike);
 app.get('/tag/:tag', tags.search);
 app.get('/designerItem/:designerID/filter/:filterType', designerItem.filter);
+app.get('/loginGuest', user.createGuest);
+
 // Example route
 // app.get('/users', user.list);
 // <app var from express>.get('<url path to js file>', <jsfilename>.<exported function>)

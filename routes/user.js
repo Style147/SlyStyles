@@ -67,6 +67,24 @@ exports.create = function(req, res) {
 	}
 }
 
+exports.createGuest = function(req, res) {
+	console.log('creating guest account');
+	var newUser = new userModel.User({
+		"login": 'guest',
+		"password": 'guest',
+		"myContributions": [],
+		"name": 'Guest',
+		"imageURL": 'http://i.imgur.com/S3SY2QB.png'
+	});
+	console.log('newGuestUser: '+newUser);
+	newUser.save(function(err, savedThing) {
+		if(err) {console.log(err); res.send(500);}
+		console.log('new account saved, logging in');
+		var loginURL = '/login?user=guest&password=guest';
+		console.log(loginURL);
+		res.redirect(loginURL);
+	});
+}
 
 
 
