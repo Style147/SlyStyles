@@ -41,6 +41,9 @@ exports.view = function(req, res) {
 	}
 }
 
+//this is exactly the same as view except it renders profile_expmt
+//this allows tracking of pageviews for the experiment so pageviews 
+//the of profile_expmt will show ppl who clicked the hear
 exports.viewExpmt = function(req, res) {
 	//get the designer item to render
 	userModel.User.find({"_id": req.session.userid}).exec(callback);
@@ -53,7 +56,6 @@ exports.viewExpmt = function(req, res) {
 		}
 		var user = users[0];
 		
-
 		console.log(user.mydlikes);
 		designerItemModel.DesignerItem.find({
 			'_id': { $in: user.mydlikes}
