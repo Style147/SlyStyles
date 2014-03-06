@@ -6,13 +6,73 @@
  	background-color: #E5E8F1;
  }
 
- .container h1, h3, h2{
+ .button-bar{
+ 	display:table;
+ 	width: 100%;
+ }
+
+
+div>h3.fancy{
+	font-family: 'Playfair Display', serif;
+}
+
+a>h5{
+	font-weight:normal;
+}
+
+.col-xs-6>.thumbnail{
+	border-radius:0px;
+	border-color:#313036;
+	border-width:1px;
+}
+
+ .btn-litetype{
+ 	width: 32.6%;
+ 	background-color:#FFFFFF;
+ 	background-image:none;
+ 	border-style:solid;
+ 	border-color:#313036;
+ 	display:table-cell;
+ 	margin-left:0;
+	margin-right:0;
+	padding-left:0;
+	padding-right:0;
+	display:inline-table;
+	text-align:center; 
+
+ }
+
+ .container h1, h3, h2, h4{
  	font-family: 'Playfair Display', serif;
 
  }
 
+ .container input{
+ 	font-family: 'Lato', sans-serif;
+	border-style:solid;
+	border-color:#808288;
+	border-width:2px;
+ }
+
+ #searchBtn{
+ 	position: absolute;
+ 	left:-9999px;
+ }
+
+ .playfair{
+ 	font-family: 'Playfair Display', serif;
+ }
+
+
+ table input .form-control{
+ 	display:inline-block;
+ 	position:static;
+ }
+
+
  .container .form-control{
  	border-radius:0px;
+ 		float: left;
  }
 
  .container button.btn.btn-primary{
@@ -22,12 +82,25 @@
  	font-family: 'Lato', serif;
  }
 
+ .container button.btn{
+
+ 	position: static;
+ 	border-radius:0px;
+ 	background-image: none;
+ 	background-color: #313036;
+ 	font-family: 'Lato', serif;
+ 	color:#FFFFFF;
+ 	text-shadow: none;
+ }
+
  .italic{
  	font-style:italic;
+ 	color:#333;
  }
 
  .check{
  	display: inline;
+ 	color: #333;
  }
 
  .red{
@@ -54,8 +127,9 @@ div.caption{
 	background-color:rgba(0, 0, 0, 0.5);
 }
 
-.italic{
 
+.blacklato{
+	color:#313036;
 }
 
 .caption a, h3, h4, h5, p{
@@ -64,9 +138,29 @@ div.caption{
 	color: #E5E8F1;
 }
 
+.caption h3 .italic{
+	color: #333;
+}
+
+div .no-padding {
+  padding:0;
+}
+
+.full-width{
+	color:#E5E8F1;
+  width:100%;
+margin-left:0;
+margin-right:0;
+padding-left:0;
+padding-right:0;
+display:block;
+text-align:center; 
+}
+
 .front-table{
 	width: 100%;
 }
+
 
 .front-like{
 	text-align:right;
@@ -86,10 +180,14 @@ div.caption{
 
 .designer-item .price {
 	text-align: right;
+	font-size:28px;
+	font-family: "Lato", sans-serif;
 }
 
 .designer-item .brand {
 	font-weight: bold;
+	font-size:14px;
+	font-family: "Lato", sans-serif;
 }
 
 /* class for the abstract idea of a list of

@@ -29,13 +29,18 @@ exports.view = function(req, res) {
 			}).exec(afterGettingAlts);
 
 			function afterGettingAlts(err, altItems) {
+				designerItem = designerItem.toObject();
+				designerItem.brand = designerItem.brand.toUpperCase();
+				designerItem.name = designerItem.name.toUpperCase();
 				if(mydlikes.indexOf(designerItem._id) != -1){
-					designerItem = designerItem.toObject();
 					designerItem.liked = '1';
 				}
 				for(var i = 0; i<altItems.length; i++){
+					altItems[i] = altItems[i].toObject();
+					altItems[i].brand = altItems[i].brand.toUpperCase();
+					altItems[i].name = altItems[i].name.toUpperCase();
 					if(myalikes.indexOf(altItems[i]._id) != -1){
-						altItems[i] = altItems[i].toObject();
+						
 						altItems[i].liked = '1';
 						console.log(designerItems[i]);
 					}
