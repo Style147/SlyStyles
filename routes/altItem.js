@@ -57,19 +57,30 @@ exports.view = function(req, res) {
 
 			var altItem = altItems[0];
 			var myalikes = foundData[0].myalikes;
+			altItem = altItem.toObject();
+			altItem.name = altItem.name.toUpperCase();
+			altItem.brand = altItem.brand.toUpperCase();
 			
 			if(myalikes.indexOf(altItem._id) != -1){
-				altItem = altItem.toObject();
+				
 				altItem.liked = '1';
 			}
 			if(err) console.log(err);
 			altItem.prevDesignerItemID = req.params.designerID;
-			var toPass = { "user":{ 
-				"name":req.session.user,
+			designerItemModel.DesignerItem.find({"_id": req.params.designerID}).exec(callbackD);
+			function callbackD(err, foundData){
+				var designerItem = foundData[0].toObject();
+				designerItem.name = designerItem.name.toUpperCase();
+				designerItem.brand = designerItem.brand.toUpperCase();
+				var toPass = { "user":{ 
+				"name":req.session.user.toUpperCase(),
 				"imageURL":req.session.imageURL},
-				"altItem":altItem };
-			console.log(toPass);
+				"altItem":altItem,
+				"designerItem":designerItem};
+				console.log(toPass);
 			res.render('altItem', toPass)
+			}
+			
 			
 			
 		}

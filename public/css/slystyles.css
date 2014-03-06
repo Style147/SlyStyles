@@ -42,6 +42,10 @@ a>h5{
 
  }
 
+ .navbar-header, .navbar-nav a{
+ 	font-family: 'Playfair Display', serif;
+ }
+
  .container h1, h3, h2, h4{
  	font-family: 'Playfair Display', serif;
 
@@ -62,6 +66,8 @@ a>h5{
  .playfair{
  	font-family: 'Playfair Display', serif;
  }
+
+
 
 
  table input .form-control{
@@ -130,6 +136,7 @@ div.caption{
 
 .blacklato{
 	color:#313036;
+	font-family: "Lato", sans-serif;
 }
 
 .caption a, h3, h4, h5, p{
@@ -166,6 +173,8 @@ text-align:center;
 	text-align:right;
 }
 
+
+
 .designer-item-feed {
 
 }
@@ -178,14 +187,13 @@ text-align:center;
 
 }
 
-.designer-item .price {
+.designer-item .price, .alternative-item .price {
 	text-align: right;
 	font-size:28px;
 	font-family: "Lato", sans-serif;
 }
 
-.designer-item .brand {
-	font-weight: bold;
+.designer-item .brand, .alternative-item .brand {
 	font-size:14px;
 	font-family: "Lato", sans-serif;
 }
@@ -230,17 +238,11 @@ text-align:center;
 	color:#000000;
 }
 
-.item-name {
-	/*float: left;
-	*/
+.item-name, .item-brand, .item-price {
+	line-height:50%;
 }
 
-.item-brand {
-	/*float: left;
-	*/
+.caption-alt td, h5{
+	padding:0;
 }
 
-.item-price {
-	/*float: left;
-	*/
-}
