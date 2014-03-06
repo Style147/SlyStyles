@@ -10,12 +10,16 @@
 	<link href="/css/header.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link href="/css/slystyles.css" rel="stylesheet">
+	<link href="/css/profile.css" rel="stylesheet">
 </head>
 
 <body style="padding-top:70px">
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/experiment.js"></script>
+
+
 
 	<nav class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
 		<div class="container" >
@@ -57,61 +61,86 @@
 		</div>
 	</nav>
 
-	<h2>Tag: {{tag}}</h2>
-	<h2>Designer Items</h2>
-	<div class="row">
-		{{#each designerItems}}
-		<div class="designer-item-feed" id="{{_id}}">
+	<div class = "container rel">
+		<div class = "personal">
+			<table class="wider">
+				<tr >
+					<td>
+						<img class="profilePic" src = "{{user.imageURL}}"></img>
+					</td>
+					<td>
+						<ul class="nav navbar-nav navbar-right"  id="dropdown" >
+							<li>
+								<h3>{{user.name}}</h3>
+							</li>
+							<li>
+								I am a fashion junkie. 
+							</li>
+
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<hr>
+	<div class = "container icons">
+		<table class ="middleItems">
+			<tr>
+				<td>
+					<p><a href="/profile"><i class="fa fa-heart fa-5x"></i></a></p>
+					Likes
+				</td>
+				<td>
+					<p><a href="/profilecon"><i class="non-selected fa fa-thumbs-up fa-5x"></i></a></p> Contributions
+				</td>
+			</tr>
+		</table>
+	</div>
+	<hr>
+	Designer Items
+	<div>
+		{{#each mydlikes}}
+		<div class="row">
+				
 			<div class="col-xs-6">
 				<div class="designer-thumbnail thumbnail">
-					<a href="/designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
+					<a href="designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
 					<div class="caption">
-						<a href="/designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
-
-						{{#if liked}}
-						<p>
-							<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
-						</p>
-						{{else}}
-						<p>
-							<a href="/dlike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a>{{likes}}
-						</p>
-						{{/if}}
-						<p class="tags">tags: {{#each tags}}<a href="/tag/{{.}}">{{.}} </a>{{/each}}</p>
+						<a href="designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
+						<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
 					</div>
 				</div>
 			</div>
+
 		</div>
 		{{/each}}
+			
 	</div>
 	<hr>
-	<h2>Alt Items</h2>
+	Alternative Items
+	<div>
+		{{#each myalikes}}
 		<div class="row">
-			{{#each altItems}}
-			<div class="designer-item-feed" id="{{_id}}">
-
-				<div class="col-xs-6">
-					<div class="designer-thumbnail thumbnail">
-						<a href="/designerItem/{{designerMatch}}/altItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
-						<div class="caption">
-							<a href="/designerItem/{{designerMatch}}/altItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
-
-							{{#if liked}}
+				
+			<div class="col-xs-6">
+				<div class="designer-thumbnail thumbnail">
+					<a href="designerItem/{{designerMatch}}/altItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
+					<div class="caption">
+						<a href="designerItem/{{designerMatch}}/altItem/{_id}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
 							<p>
 								<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
 							</p>
-							{{else}}
-							<p>
-								<a href="/alike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a>{{likes}}
-							</p>
-							{{/if}}
-							<p class="tags">tags: {{#each tags}}<a href="/tag/{{.}}">{{.}} </a>{{/each}}</p>
-						</div>
 					</div>
 				</div>
 			</div>
-			{{/each}}
+
 		</div>
+		{{/each}}
+			
+	</div>
+
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -126,7 +155,6 @@
 		
 		ga('send', 'pageview');
 	</script>
-
 </body>
 
 </html>
