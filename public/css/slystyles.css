@@ -2,8 +2,74 @@
  * SlyStyles CSS
  */
 
+ body{
+ 	background-color: #E5E8F1;
+ }
 
-.designer-thumbnail {
+ .container h1, h3, h2{
+ 	font-family: 'Playfair Display', serif;
+
+ }
+
+ .container .form-control{
+ 	border-radius:0px;
+ }
+
+ .container button.btn.btn-primary{
+ 	border-radius:0px;
+ 	background-image: none;
+ 	background-color: #313036;
+ 	font-family: 'Lato', serif;
+ }
+
+ .italic{
+ 	font-style:italic;
+ }
+
+ .check{
+ 	display: inline;
+ }
+
+ .red{
+ 	color:red;
+ }
+
+.input-group input{
+	display:inline;
+}
+
+.front-search{
+	display:inline;
+}
+
+
+div.designer-thumbnail.thumbnail {
+	border-radius: 0px;
+	border-style:solid;
+	border-color:#808288;
+	border-width:2px;
+}
+
+div.caption{
+	background-color:rgba(0, 0, 0, 0.5);
+}
+
+.italic{
+
+}
+
+.caption a, h3, h4, h5, p{
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+	color: #E5E8F1;
+}
+
+.front-table{
+	width: 100%;
+}
+
+.front-like{
+	text-align:right;
 }
 
 .designer-item-feed {

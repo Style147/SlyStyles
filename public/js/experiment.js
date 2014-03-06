@@ -9,5 +9,5 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
  function initializePage() {
- 		ga("send", "event", "arrive", "click");
+ 	//	ga("send", "event", "arrive", "click");
  }

@@ -18,15 +18,17 @@ exports.view = function(req, res){
 			var mydlikes = foundData[0].mydlikes;
 			console.log(mydlikes);
 			for(var i = 0; i<designerItems.length; i++){
+				designerItems[i] = designerItems[i].toObject();
 				if(mydlikes.indexOf(designerItems[i]._id) != -1){
-					designerItems[i] = designerItems[i].toObject();
 					designerItems[i].liked = '1';
 					console.log(designerItems[i]);
 				}
+				designerItems[i].brand = designerItems[i].brand.toUpperCase();
+				designerItems[i].name = designerItems[i].name.toUpperCase();
 			}
 
 			var toPass = { "user":{ 
-			"name":req.session.user,
+			"name":req.session.user.toUpperCase(),
 		 	"imageURL":req.session.imageURL},
 		 	"designerItems":designerItems };
 			//index.handlebars expects to see a json object with the designerItems attribute

@@ -3,7 +3,7 @@
 <html>
 <head>
 	<!-- Google Analytics Content Experiment code -->
-<script>function utmx_section(){}function utmx(){}(function(){var
+<script>/*function utmx_section(){}function utmx(){}(function(){var
 k='83001577-0',d=document,l=d.location,c=d.cookie;
 if(l.search.indexOf('utm_expid='+k)>0)return;
 function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
@@ -13,19 +13,21 @@ length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
 '://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
 '&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
 valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
-'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();*/
 </script><script>utmx('url','A/B');</script>
 <!-- End of Google Analytics Content Experiment code -->
 
-	<title>SlyStyles</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="/css/header.css" rel="stylesheet">
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-	<link href="/css/slystyles.css" rel="stylesheet">
-	<link href="/css/fonts.css" rel="stylesheet">
+<title>SlyStyles</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="/css/header.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="/css/slystyles.css" rel="stylesheet">
+<link href="/css/fonts.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body style="padding-top: 50px">
@@ -98,13 +100,13 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 						<td>
 							<ul class="nav navbar-nav navbar-right"  id="dropdown" >
 								<li>
-									<a href="/profile" target="_self" class="t-head"><i class="fa fa-angle-left"></i>&nbsp; {{user.name}}</a>
+									<a href="/profile" target="_self" class="t-head front-like"><i class="fa fa-angle-left red"></i>&nbsp; {{user.name}}</a>
 								</li>
 								<li>
-									<a href="/settings" target="_self" class="t-nav"><i class="fa fa-angle-left"></i>&nbsp; SETTINGS</a>
+									<a href="/settings" target="_self" class="t-nav front-like"><i class="fa fa-angle-left red"></i>&nbsp; SETTINGS</a>
 								</li>
 								<li>
-									<a href="/logout" target="_self" class="t-head"><i class="fa fa-angle-left"></i>&nbsp; LOGOUT</a>
+									<a href="/logout" target="_self" class="t-head front-like"><i class="fa fa-angle-left red"></i>&nbsp; LOGOUT</a>
 								</li>
 							</ul>
 						</td>
@@ -118,51 +120,66 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
 	<!-- Container for rest feed/list of items  -->
 	<div class="container">
-		<h1><center>Hot Items</center></h1>
+		<br>
+		<h2 class="italic check">now viewing... </h2><h2 class="check">ORIGINALS</h2>
+		<h1></h1>
 		<!-- upload button -->
-		<div class="col-xs-3">
-			<div class="input-group  center"><button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Upload Designer Item </button>
-			</div>
-		</div>
-		
-		<!-- search bar -->
-		<div class="col-xs-6">
-			<div class="input-group">
-				<form action="/frontPage/search" method="get">
-					<input type="text" id="searchTextBox" placeholder="Search Designer Items" class="form-control" name="searchText"></input>
-					<span class="input-group-btn">
-						<button class="btn btn-default" id="searchBtn" type="button">Go!</button>
-					</span>
-				</form>
-			</div><!-- /input-group -->
-		</div><!-- /.col-lg-6 -->
+		<table>
+			<tr>
+				
+					<td>
+						<!-- search bar -->
+						<div class="col-xs-6">
+							<div class="input-group">
+								<form class="front-search" action="/frontPage/search" method="get">
+									<input type="text" id="searchTextBox" placeholder="Search Designer Items" class="form-control" name="searchText"></input>
+									<span class="input-group-btn">
+										<button class="btn btn-default" id="searchBtn" type="button">Go!</button>
+									</span>
+								</form>
+							</div><!-- /input-group -->
+						</div><!-- /.col-lg-6 -->
+					</div>
+				</td>
+				<td>
+					<div>
+						<div class="col-xs-6">
+							<div class="input-group  center"><button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> UPLOAD DESIGNER ITEM</button>
+							</div>
+						</div>
+					</td>
+			</tr>
+		</table>
 
 		{{#if noItems}}
 		<h4>No Items Match That Search</h4>
 		{{else}}
 		{{#each designerItems}}
-		<div class="designer-item-feed" id="{{_id}}">
+		<div class="designer-item-feed item-div" id="{{_id}}">
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="designer-thumbnail thumbnail">
 						<a href="/designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
 						<div class="caption">
-							<a href="/designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
-							
-							{{#if liked}}
-							<p>
-								<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
-							</p>
-							{{else}}
-							<a href="/dlike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a>{{likes}}
-							</p>
-							{{/if}}
-							{{#if buylink}}	
-							<p>
-								<a href="{{buylink}}" class="btn btn-primary" role="button">Buy</a>
-							</p>	
-							{{/if}}
-							<p class="tags">tags: {{#each tags}}<a href="/tag/{{.}}">{{.}} </a>{{/each}}</p>
+							<table class='front-table'>
+								<tr>
+									<td>
+										<a href="/designerItem/{{_id}}"><h4>{{name}}</h4><p/><h5>by {{brand}}</h5></a>
+									</td>
+									<td class='front-like'>
+
+										{{#if liked}}
+										<p>
+											<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{likes}}</h4>
+										</p>
+										{{else}}
+										<p>
+											<a href="/dlike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h4>{{likes}}</h4>
+										</p>
+										{{/if}}
+									</td>
+								</tr>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -183,17 +200,17 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 				<div class="modal-body hideInput">
 					<div class = "form-group">
 						<form action="/addDesignerItem" enctype="multipart/form-data" method="post">
-						Brand:	
-						<input type="text" class="upload-form form-control" id="brand" name="brand"> <br>
-						Item Description: 
-						<input type="text" class="upload-form form-control" id="name" name="name"> <br>
-						Price:	
-						<input type="text" class="upload-form form-control" id="price" name="price"> <br>
-						Image URL:	
-						<input type="text" class="upload-form form-control" id="imageURL" name="imageURL"> <br>
-						Tags:	
-						<input type="text" class="upload-form form-control" id="tags" name="tags"> <br>
-						<input type="submit" class="upload-form form-control" value="Upload">
+							Brand:	
+							<input type="text" class="upload-form form-control" id="brand" name="brand"> <br>
+							Item Description: 
+							<input type="text" class="upload-form form-control" id="name" name="name"> <br>
+							Price:	
+							<input type="text" class="upload-form form-control" id="price" name="price"> <br>
+							Image URL:	
+							<input type="text" class="upload-form form-control" id="imageURL" name="imageURL"> <br>
+							Tags:	
+							<input type="text" class="upload-form form-control" id="tags" name="tags"> <br>
+							<input type="submit" class="upload-form form-control" value="Upload">
 						</form>
 
 					</div>
@@ -209,10 +226,10 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 	<script src="/js/frontPage.js"></script>
 	
 	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 		//production version
 		ga('create', 'UA-48670740-1', 'slystyles.herokuapp.com');
@@ -221,9 +238,9 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
 		ga('send', 'pageview');
 
-	</script>
+		</script>
 
 
-</body>
+	</body>
 
-</html>
+	</html>
