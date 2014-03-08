@@ -4,6 +4,7 @@
 			"id": 0,
 			"login": "lindsey",
 			"password": "txa",
+			"description":"Touch my butt & buy me pizza! I like Chipotle and cheap clothes that look good.",
 			"name": "Lindsey",
 			"imageURL":"http://upload.wikimedia.org/wikipedia/commons/d/d9/20120712_Mila_Kunis_@_Comic-con_cropped.jpg"
 		},
@@ -11,6 +12,7 @@
 			"id": 1,
 			"login": "jed",
 			"password": "tan",
+			"description":"I love rugged clothes, vinyl, NBA and McDonalds. I embody the intersection of ratchet and classy.",
 			"name": "Jed",
 			"imageURL":"http://hoops-nation.com/wp-content/uploads/2012/03/paul_pierce_250.jpg"
 		}

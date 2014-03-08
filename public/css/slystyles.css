@@ -139,6 +139,13 @@ div.caption{
 	font-family: "Lato", sans-serif;
 }
 
+.blackplayfair{
+	color:#313036;
+	font-family: "Playfair Display", serif;
+	text-align:center;
+	font-style:italic;
+}
+
 .caption a, h3, h4, h5, p{
 	font-family: 'Lato', sans-serif;
 	font-weight: bold;
@@ -234,15 +241,26 @@ text-align:center;
 }
 
 
+
 .unliked{
 	color:#000000;
 }
 
 .item-name, .item-brand, .item-price {
-	line-height:50%;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 
 .caption-alt td, h5{
 	padding:0;
+}
+
+.thumbnail .caption-profile, .thumbnail .caption{
+	font-family: 'Lato', sans-serif;
+	font-size:16px;
+	font-weight:300;
+	color:#E5E8F1;
+	padding-top:3px;
+	padding-bottom:3px;
 }
 

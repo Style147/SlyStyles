@@ -1,6 +1,5 @@
 img.profilePic{
-	width:171px;
-	height:132px;
+	
 }
 
 .rel{
@@ -26,4 +25,8 @@ a{
 
 .non-selected{
 	color: #C8C8C8;
+}
+
+.container .col-xs-6{
+	padding: 20px;
 }
