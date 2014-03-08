@@ -62,7 +62,7 @@ app.get('/frontpage', frontPage.view);
 // EXPERIMENT
 app.get('/frontpageLikes', frontPage.viewNavbarLikes);
 app.get('/profileExp', profile.viewExpmt);
-app.get('/profileBase', profile.viewBase);
+app.get('/profileBase', profile.view);
 
 app.get('/logout', user.logout);
 app.get('/createAccount', user.create);

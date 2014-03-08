@@ -64,7 +64,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 									<a href="/profileBase" target="_self"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
 								</li>
 								<li>
-									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; SETTINGS</a>
+									<a href="/settings" target="_self"><i class="fa fa-gears fa-2x"></i>&nbsp; SETTINGS</a>
 								</li>
 								<li>
 									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; LOGOUT</a>
@@ -87,7 +87,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand t-head" href="/frontpage">FASHIONCENTS</a>
+				<a class="navbar-brand t-head" href="/frontpage"><i class="fa fa-angle-left red"></i> FASHIONCENTS</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -125,27 +125,28 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 		<h2 class="italic check">now viewing... </h2><h2 class="check">ORIGINALS</h2>
 		<h1></h1>
 		<!-- upload button -->
-		<table>
+		<table class="search">
 			<tr>
 				
-					<td>
+					<td class="search">
 						<!-- search bar -->
-						<div class="col-xs-6">
-							<div class="input-group">
-								<form class="front-search" action="/frontPage/search" method="get">
-									<input type="text" id="searchTextBox" placeholder="Search Designer Items" class="form-control" name="searchText"></input>
-									<span class="input-group-btn">
-										<button class="btn btn-default" id="searchBtn" type="button">Go!</button>
-									</span>
+						<div class="col-xs-12">
+							
+								<form action="/frontPage/search" method="get" class ="linear">
+									<input type="text" id="searchTextBox" placeholder="SEARCH" class="form-control" name="searchText"></input>
+									<button class="btn btn-default" id="searchBtn" type="button">GO</button>
+									
+										
+									
 								</form>
-							</div><!-- /input-group -->
+							
 						</div><!-- /.col-lg-6 -->
 					</div>
 				</td>
 				<td>
 					<div>
 						<div class="col-xs-6">
-							<div class="input-group  center"><button class="btn btn-primary" data-toggle="modal" data-target="#myModal"> UPLOAD DESIGNER ITEM</button>
+							<div class="input-group  center"><button class="btn btn-primary" data-toggle="modal" data-target="#myModal">   UPLOAD  </button>
 							</div>
 						</div>
 					</td>

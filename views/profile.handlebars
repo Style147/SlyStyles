@@ -11,6 +11,10 @@
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link href="/css/slystyles.css" rel="stylesheet">
 	<link href="/css/profile.css" rel="stylesheet">
+	<link href="/css/fonts.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body style="padding-top:70px">
@@ -19,7 +23,7 @@
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/experiment.js"></script>
 
-	<nav class="navbar-inverse navbar-default navbar-fixed-top" role="navigation" id="top">
+	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top navbar-inner" role="navigation" id="top">
 		<div class="container" >
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -29,7 +33,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/frontpage">FASHIONCENTS</a>
+				<a class="navbar-brand t-head" href="/frontpage"><i class="fa fa-angle-left red"></i> FASHIONCENTS</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -43,13 +47,13 @@
 						<td>
 							<ul class="nav navbar-nav navbar-right"  id="dropdown" >
 								<li>
-									<a href="/profile" target="_self"><i class="fa fa-user"></i>&nbsp; {{user.name}}</a>
+									<a href="/profile" target="_self" class="t-head front-like"><i class="fa fa-angle-left red"></i>&nbsp;  {{user.name}}</a>
 								</li>
 								<li>
-									<a href="/settings" target="_self"><i class="fa fa-gears"></i>&nbsp; Settings</a>
+									<a href="/settings" target="_self" class="t-head front-like"><i class="fa fa-angle-left red"></i>&nbsp; SETTINGS</a>
 								</li>
 								<li>
-									<a href="/logout" target="_self"><i class="fa fa-power-off"></i>&nbsp; Logout</a>
+									<a href="/logout" target="_self" class="t-head front-like"><i class="fa fa-angle-left red"></i>&nbsp; LOGOUT</a>
 								</li>
 							</ul>
 						</td>
@@ -59,87 +63,160 @@
 		</div>
 	</nav>
 
-	<div class = "container rel">
-		<div class = "personal">
-			<table class="wider">
-				<tr >
-					<td>
-						<img class="profilePic" src = "{{user.imageURL}}"></img>
-					</td>
-					<td>
-						<ul class="nav navbar-nav navbar-right"  id="dropdown" >
-							<li>
-								<h3>{{user.name}}</h3>
-							</li>
-							<li>
-								I am a fashion junkie. 
-							</li>
+	<div class="container">
+		<div class="alternative-item">
+			<div class="alternative-item-title">
+				<div class="playfair" >
+					<center><h4 class="italic check playfair">now viewing... </h4><h4 class="check playfair">YOUR PROFILE</h4>
+						<h3 class="blacklato">{{user.name}}</h3>
+					</center>
+					
+				</div>
 
-						</ul>
-					</td>
-				</tr>
-			</table>
+
+			</div>
+			<div class="thumbnail designer-thumbnail">
+				<a href="#"><img src="{{user.imageURL}}" alt="foo1" class="img-responsive"></a>
+				<div class="caption caption-profile">
+
+					{{description}}
+				</div>
+			</div>
 		</div>
-	</div>
 
-	<hr>
-	<div class = "container icons">
-		<table class ="middleItems">
-			<tr>
-				<td>
-					<p><a href="/profile"><i class="fa fa-heart fa-5x"></i></a></p>
-					Likes
-				</td>
-				<td>
-					<p><a href="/profilecon"><i class="non-selected fa fa-thumbs-up fa-5x"></i></a></p> Contributions
-				</td>
-			</tr>
-		</table>
-	</div>
-	<hr>
-	Designer Items
-	<div>
-		{{#each mydlikes}}
-		<div class="row">
-				
-			<div class="col-xs-6">
+		<div class="col-xs-6">
+			<h4 class="blackplayfair"> likes </h4>
+			{{#each mydlikes}}
+			<div class="row">
+
+
 				<div class="designer-thumbnail thumbnail">
 					<a href="designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
 					<div class="caption">
-						<a href="designerItem/{{_id}}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
-						<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
+						<table class="front-table">
+							<tr>
+								<td>
+									<a href="designerItem/{{_id}}"><h5 class="item-name">{{name}}</h5>
+										<h5 class="item-brand">by {{brand}}</h5>
+										<h5 class="item-price">${{price}}</h5></a>
+									</td>
+									<td class="front-like">
+										<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h5>{{likes}}</h5>
+									</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
-			</div>
-
-		</div>
-		{{/each}}
-			
-	</div>
-	<hr>
-	Alternative Items
-	<div>
-		{{#each myalikes}}
-		<div class="row">
-				
-			<div class="col-xs-6">
-				<div class="designer-thumbnail thumbnail">
-					<a href="designerItem/{{designerMatch}}/altItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
-					<div class="caption">
-						<a href="designerItem/{{designerMatch}}/altItem/{_id}"><h3>{{name}}</h3><p/><h4>by {{brand}}</h4></a>
-							<p>
-								<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>{{likes}}
-							</p>
+				{{/each}}
+				{{#each myalikes}}
+				<div class="row">
+					<div class="designer-thumbnail thumbnail">
+						<a href="designerItem/{{designerMatch}}/altItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
+						<div class="caption">
+							<table class="front-table">
+								<tr>
+									<td>
+										<a href="designerItem/{{designerMatch}}/altItem/{_id}"><h5 class="item-name">{{name}}</h5>
+											<h5 class="item-brand">by {{brand}}</h5>
+											<h5 class="item-price">${{price}}</h5></a>
+										</td>
+										<td class="front-like">
+											<p>
+												<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h5>{{likes}}</h5>
+											</p>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
 					</div>
+					{{/each}}
 				</div>
-			</div>
 
-		</div>
-		{{/each}}
-			
-	</div>
+				<div class="col-xs-6">
+					<h4 class="blackplayfair"> uploads </h4>
+					{{#each mydContributions}}
+					<div class="row">
+						<div class="designer-thumbnail thumbnail">
+							
 
-	<script>
+							<a href="designerItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
+							<div class="caption">
+								<table class="front-table">
+									<tr>
+										<td>
+											<a href="designerItem/{{_id}}"><h5 class="item-name">{{name}}</h5>
+												<h5 class="item-brand">by {{brand}}</h5>
+												<h5 class="item-price">${{price}}</h5></a>
+											</td>
+											<td class="front-like">
+												{{#if liked}}
+												<p>
+													<p>
+														<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h5>{{likes}}</h5>
+													</p>
+													<p>
+														{{else}}
+														<a href="/dlike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h5>{{likes}}</h5>
+													</p>
+													{{/if}}
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</div>
+							{{/each}}
+							{{#each myaContributions}}
+							<div class="row">
+								<div class="designer-thumbnail thumbnail">
+									<a href="designerItem/{{designerMatch}}/altItem/{{_id}}"><img src="{{image}}" alt="foo1" class="img-responsive"></a>
+									<div class="caption">
+										<table class="front-table">
+											<tr>
+												<td>
+													<a href="designerItem/{{designerMatch}}/altItem/{_id}"><h5 class="item-name">{{name}}</h5>
+														<h5 class="item-brand">by {{brand}}</h5>
+														<h5 class="item-price">${{price}}</h5></a>
+													</td>
+													<td class="front-like">
+														{{#if liked}}
+														<p>
+															<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h5>{{likes}}</h5>
+														</p>
+														<p>
+															{{else}}
+															<a href="/alike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h5>{{likes}}</h5>
+														</p>
+														{{/if}}
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+								{{/each}}
+							</div>
+
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<script>
 		/*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -151,8 +228,8 @@
 		//ga('create', 'UA-48670740-1', { 'cookieDomain': 'none'});
 		
 		ga('send', 'pageview');*/
-	</script>
-	
-</body>
+		</script>
 
-</html>
+	</body>
+
+	</html>
