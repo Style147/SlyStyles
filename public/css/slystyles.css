@@ -51,13 +51,48 @@ a>h5{
 
  }
 
- .container input{
+ .container input, .input-group .upload-form{
  	font-family: 'Lato', sans-serif;
 	border-style:solid;
 	border-color:#808288;
 	border-width:2px;
+	border-radius:0px;
  }
 
+ form{
+ 	font-family: 'Lato', sans-serif;
+ 	color: #313036;
+ }
+
+
+.modal-body, .modal-header{
+	background-color: #E5E8F1;
+}
+
+.validator{
+	
+	border-radius:0px;
+	background-color:#ffffff;
+	border-width:2px;
+	border-color:#808288;
+}
+
+
+.wrong{
+	color:red;
+}
+
+.right{
+	color:green;
+}
+
+#myModalLabel{
+	text-align: center;
+	color: #313036;
+	font-family: 'Playfair Display', serif;
+	font-style:italic;
+	font-size:24px;
+}
 /*
  #searchBtn{
  	position: absolute;
