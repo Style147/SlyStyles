@@ -5,7 +5,8 @@ var userModel = require('../models/userModel');
 
 
 exports.view = function(req, res) {
-	var itemID = req.params.id;
+	if(typeof req.session.user != 'undefined'){
+		var itemID = req.params.id;
 
 	//get the designer item to render
 	designerItemModel.DesignerItem.find({"_id": itemID}).exec(callback);
@@ -63,6 +64,10 @@ exports.view = function(req, res) {
 		}
 
 	}
+}
+else{
+	res.render('index');
+}
 
 }
 
@@ -122,9 +127,9 @@ exports.addAltItem = function(req, res) {
 
 		function afterUpdating(err, data) {
 			userModel.User.update({'_id': req.session.userid},
-			{$push: {'myaContributions': newAlt}},
-			{upsert: true},
-			afterUpdate);
+				{$push: {'myaContributions': newAlt}},
+				{upsert: true},
+				afterUpdate);
 			function afterUpdate(err){
 				if(err) {console.log(err); res.send(500);}
 			}

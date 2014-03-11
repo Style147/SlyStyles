@@ -39,7 +39,9 @@ exports.like = function(req, res) {
 }
 
 exports.view = function(req, res) {
-	var itemID = req.params.altID;
+	if(typeof req.session.user != 'undefined'){
+
+		var itemID = req.params.altID;
 	//itemID = parseInt(itemID);
 
 	//get the alt item to render
@@ -73,25 +75,29 @@ exports.view = function(req, res) {
 				designerItem.name = designerItem.name.toUpperCase();
 				designerItem.brand = designerItem.brand.toUpperCase();
 				var toPass = { "user":{ 
-				"name":req.session.user.toUpperCase(),
-				"imageURL":req.session.imageURL},
-				"altItem":altItem,
-				"designerItem":designerItem};
-				console.log(toPass);
-			res.render('altItem', toPass)
+					"name":req.session.user.toUpperCase(),
+					"imageURL":req.session.imageURL},
+					"altItem":altItem,
+					"designerItem":designerItem};
+					console.log(toPass);
+					res.render('altItem', toPass)
+				}
+				
+				
+				
 			}
 			
-			
-			
-		}
-		
 
+		}
+	}
+	else{
+		res.render('index');
 	}
 }
 
-	exports.unlike = function(req, res) {
-		var itemID = req.params.itemID;
-		console.log(req.params.itemID);
+exports.unlike = function(req, res) {
+	var itemID = req.params.itemID;
+	console.log(req.params.itemID);
 
 
 	//add to users dlikes

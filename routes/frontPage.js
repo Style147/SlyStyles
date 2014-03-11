@@ -3,41 +3,47 @@ var altItemModel = require('../models/altItemModel');
 var userModel = require('../models/userModel');
 
 exports.view = function(req, res){
-	designerItemModel.DesignerItem.find().exec(callback);
+	if(typeof req.session.user != 'undefined'){
+		designerItemModel.DesignerItem.find().exec(callback);
 
-	function callback(err, designerItems) {
-		if(err) {
-			console.log(err);
-			res.sessionnd(500);
-		}
-
-		userModel.User.find({'_id':req.session.userid}).exec(foundUser);
-
-
-		function foundUser(err, foundData){
-			var mydlikes = foundData[0].mydlikes;
-			console.log(mydlikes);
-			for(var i = 0; i<designerItems.length; i++){
-				designerItems[i] = designerItems[i].toObject();
-				if(mydlikes.indexOf(designerItems[i]._id) != -1){
-					designerItems[i].liked = '1';
-					console.log(designerItems[i]);
-				}
-				designerItems[i].brand = designerItems[i].brand.toUpperCase();
-				designerItems[i].name = designerItems[i].name.toUpperCase();
+		function callback(err, designerItems) {
+			if(err) {
+				console.log(err);
+				res.sessionnd(500);
 			}
 
-			var toPass = { "user":{ 
-			"name":req.session.user.toUpperCase(),
-		 	"imageURL":req.session.imageURL},
-		 	"designerItems":designerItems };
+			userModel.User.find({'_id':req.session.userid}).exec(foundUser);
+
+
+			function foundUser(err, foundData){
+				var mydlikes = foundData[0].mydlikes;
+				console.log(mydlikes);
+				for(var i = 0; i<designerItems.length; i++){
+					designerItems[i] = designerItems[i].toObject();
+					if(mydlikes.indexOf(designerItems[i]._id) != -1){
+						designerItems[i].liked = '1';
+						console.log(designerItems[i]);
+					}
+					designerItems[i].brand = designerItems[i].brand.toUpperCase();
+					designerItems[i].name = designerItems[i].name.toUpperCase();
+				}
+
+				var toPass = { "user":{ 
+					"name":req.session.user.toUpperCase(),
+					"imageURL":req.session.imageURL},
+					"designerItems":designerItems };
 			//index.handlebars expects to see a json object with the designerItems attribute
 			res.render('frontPage', toPass);
-
+			}
 		}
 		
 	}
-	
+	else{
+		res.render('index');
+	}
+
+
+
 };
 
 exports.searchDesignerItems = function(req, res) {
@@ -49,7 +55,7 @@ exports.searchDesignerItems = function(req, res) {
 		{brand: regex},
 		{description: regex},
 		{type: regex}
-	]).exec(afterFinding);
+		]).exec(afterFinding);
 
 	function afterFinding(err, designerItems) {
 		if(err) {
@@ -61,9 +67,9 @@ exports.searchDesignerItems = function(req, res) {
 		var toPass = {
 			"user": {
 				"name": req.session.user,
-		 		"imageURL": req.session.imageURL
-		 	},
-		 	"designerItems": designerItems
+				"imageURL": req.session.imageURL
+			},
+			"designerItems": designerItems
 		};
 		if(designerItems.length == 0) {
 			toPass.noItems = true;
@@ -101,9 +107,9 @@ exports.viewNavbarLikes = function(req, res) {
 			}
 
 			var toPass = { "user":{ 
-			"name":req.session.user,
-		 	"imageURL":req.session.imageURL},
-		 	"designerItems":designerItems };
+				"name":req.session.user,
+				"imageURL":req.session.imageURL},
+				"designerItems":designerItems };
 			//index.handlebars expects to see a json object with the designerItems attribute
 			toPass.navbarLikes = true;
 			res.render('frontPage', toPass);

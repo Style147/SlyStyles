@@ -5,6 +5,7 @@ var userModel = require('../models/userModel');
 
 
 exports.search = function(req, res){
+	if(typeof req.session.user != 'undefined'){
 	userModel.User.find({'_id':req.session.userid}).exec(foundUser);
 	function foundUser(err, user){
 		var mydlikes = user[0].mydlikes;
@@ -40,4 +41,8 @@ exports.search = function(req, res){
 			}
 		}
 	}
+}
+else{
+	res.render('index');
+}
 }
