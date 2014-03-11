@@ -51,12 +51,16 @@ a>h5{
 
  }
 
- .container input, .input-group .upload-form{
+ .container input, .input-group .upload-form, .form-control{
  	font-family: 'Lato', sans-serif;
 	border-style:solid;
 	border-color:#808288;
 	border-width:2px;
 	border-radius:0px;
+ }
+
+ #tags{
+ 	display:inline;
  }
 
  form{

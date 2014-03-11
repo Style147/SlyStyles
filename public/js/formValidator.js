@@ -1,7 +1,9 @@
 $(document).ready(function () {
 
     $('#newitem').validate({
-        onkeyup: true,
+        errorPlacement: function(error,element) {
+            return true;
+        },
         rules: {
             brand: {
                 required: true
@@ -18,15 +20,23 @@ $(document).ready(function () {
                 url:true
             }
         },
-        highlight: function (element) {
-            alert("hi");
-            $(element).parent().find('span:first').removeClass('right').addClass('wrong');
-                    },
+        highlight:function(element){
+            $(element).parent().find('span:first')
+            .addClass('wrong')
+            .removeClass('right');
+            $(element).parent().find('span:first').empty().html("<i class='fa fa-exclamation'></i>");
+        },
+        unhighlight: function(element, errorClass, validClass) {
+             $(element).parent().find('span:first')
+            .removeClass('wrong')
+            .addClass('right');
+             $(element).parent().find('span:first').empty().html("<i class='fa fa-check'></i>");
+        },
         success: function (element) {
             $(element).parent().find('span:first').removeClass('wrong').addClass('right');
             $(element).parent().find('span:first').empty().html("<i class='fa fa-check'></i>");
            // $(element).closest('.input-group-addon').removeClass('wrong').addClass('right');
-        }
-    });
+       }
+   });
 
 });
