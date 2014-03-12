@@ -5,7 +5,7 @@
 	<title>FashionCents</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="/css/header.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -86,12 +86,20 @@
 			<div class="thumbnail designer-thumbnail">
 				<a href="#"><img src="{{designerItem.image}}" alt="foo1" class="img-responsive"></a>
 				<div class="caption front-like">
+					<table class="front-table">
+						<tr>
+							<td class="front-like">
 					{{#if designerItem.liked}}
 					<p>
-						<a href="/dunlike/{{designerItem._id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{designerItem.likes}}</h4>
+						<a href="#" class="unlikeable" id="{{designerItem._id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{designerItem.likes}}</h4>
 					</p>
 					{{else}}
-					<a href="/dlike/{{designerItem._id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h4>{{designerItem.likes}}</h4>
+					<p>
+					<a href="#" class="likeable" id="{{designerItem._id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h4>
+					{{designerItem.likes}}</h4>
+				</td>
+			</tr>
+		</table>
 				</p>
 				{{/if}}
 			</div>
@@ -140,11 +148,11 @@
 											{{#if liked}}
 											<p>
 												<p>
-													<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h5>{{likes}}</h5>
+													<a href="#" id="{{_id}}" class="altunlikeable"><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{likes}}</h4>
 												</p>
 												<p>
 												{{else}}
-												<a href="/alike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h5>{{likes}}</h5>
+												<a href="#" id="{{_id}}" class="altlikeable"><i class="fa fa-heart fa-2x unliked"> </i></a><h4>{{likes}}</h4>
 											</p>
 											{{/if}}
 										</td>
@@ -172,22 +180,37 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">Upload File</h4>
+						<h4 class="modal-title" id="myModalLabel">upload new alternative</h4>
 					</div>
 					<div class="modal-body hideInput">
 						<div class = "form-group">
-							<form action="/designerItem/{{designerItem._id}}/addAltForDesignerItem" enctype="multipart/form-data" method="post">
-								Brand:	
+							<form id="newitem" action="/designerItem/{{designerItem._id}}/addAltForDesignerItem" enctype="multipart/form-data" method="post">
+								BRAND:	
+							<div class="input-group">
 								<input type="text" class="upload-form form-control" id="brand" name="brand"> <br>
-								Item Description: 
+								<span class="input-group-addon validator wrong"><i class="fa fa-exclamation"></i></span>
+							</div>
+							ITEM DESCRIPTION: 
+							<div class="input-group">
 								<input type="text" class="upload-form form-control" id="name" name="name"> <br>
-								Price:	
+								<span class="input-group-addon validator wrong"><i class="fa fa-exclamation"></i></span>
+							</div>
+							PRICE:	
+							<div class="input-group">
 								<input type="text" class="upload-form form-control" id="price" name="price"> <br>
-								Image URL:	
+								<span class="input-group-addon validator wrong"><i class="fa fa-exclamation"></i></span>
+							</div>
+							IMAGE URL:
+							<div class="input-group">	
 								<input type="text" class="upload-form form-control" id="imageURL" name="imageURL"> <br>
-								Tags:	
+								<span class="input-group-addon validator wrong"><i class="fa fa-exclamation"></i></span>
+							</div>
+							TAGS:	
+							<div class="input-group">
 								<input type="text" class="upload-form form-control" id="tags" name="tags"> <br>
-								<input type="submit" class="upload-form form-control" value="Upload">
+							</div>
+							<br>
+							<input type="submit" class="upload-form form-control" value="Upload">
 							</form>
 
 						</div>
@@ -200,6 +223,10 @@
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/designerItem.js"></script>
+		<script src="/js/jquery.validate.js"></script>
+		<script src="/js/jquery.validate.min.js"></script>
+		<script src="/js/formValidator.js"></script>
+		<script src="/js/ajaxlikes.js"></script>
 
 		<script>
 		/*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

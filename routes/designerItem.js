@@ -5,7 +5,8 @@ var userModel = require('../models/userModel');
 
 
 exports.view = function(req, res) {
-	var itemID = req.params.id;
+	if(typeof req.session.user != 'undefined'){
+		var itemID = req.params.id;
 
 	//get the designer item to render
 	designerItemModel.DesignerItem.find({"_id": itemID}).exec(callback);
@@ -63,6 +64,10 @@ exports.view = function(req, res) {
 		}
 
 	}
+}
+else{
+	res.render('index');
+}
 
 }
 
@@ -122,9 +127,9 @@ exports.addAltItem = function(req, res) {
 
 		function afterUpdating(err, data) {
 			userModel.User.update({'_id': req.session.userid},
-			{$push: {'myaContributions': newAlt}},
-			{upsert: true},
-			afterUpdate);
+				{$push: {'myaContributions': newAlt}},
+				{upsert: true},
+				afterUpdate);
 			function afterUpdate(err){
 				if(err) {console.log(err); res.send(500);}
 			}
@@ -275,4 +280,65 @@ exports.filter = function(req, res) {
 		}
 
 	}
+}
+
+exports.likeitem = function(req, res) {
+	console.log(req.body);
+	var itemID = req.body.id;
+
+	designerItemModel.DesignerItem.find({"_id": itemID}).exec(foundDesigner);
+
+	function foundDesigner(err, data){
+
+		var newCount = data[0].likes + 1;
+		console.log(newCount);
+		var conditions = {"_id":itemID};
+		var update = {$inc:{"likes":1}};
+		var options = {multi: false};
+		designerItemModel.DesignerItem.update(conditions, update, options, goodDesigner);
+		function goodDesigner(err){
+			if(err) { console.log(err); res.send(500); }
+		}
+		console.log('userid' + req.session.userid);
+		userModel.User.update({'_id': req.session.userid},
+			{$push: {'mydlikes': data[0]}},
+			{upsert: true},
+			afterUpdate);
+		function afterUpdate(err){
+			if(err) {console.log(err); res.send(500);}
+
+		}
+	}
+	res.end();
+	
+}
+
+exports.dislikeitem = function(req, res) {
+	var itemID = req.body.id;
+	
+
+	//add to users dlikes
+	console.log(req.session);
+
+	designerItemModel.DesignerItem.find({"_id": itemID}).exec(foundDesigner);
+
+	function foundDesigner(err, data){
+
+		var conditions = {"_id":itemID};
+		var update = {$inc:{"likes":-1}};
+		var options = {multi: false};
+		designerItemModel.DesignerItem.update(conditions, update, options, goodDesigner);
+		function goodDesigner(err){
+			if(err) { console.log(err); res.send(500); }
+		}
+		console.log('userid' + req.session.userid);
+		userModel.User.update({'_id': req.session.userid},
+			{$pull: {'mydlikes': data[0]}},
+			{upsert: true},
+			afterUpdate);
+		function afterUpdate(err){
+			if(err) {console.log(err); res.send(500);}
+		}
+	}
+	res.end();
 }

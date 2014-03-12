@@ -74,12 +74,13 @@
 	margin-right: auto;
 }
 
-#loginGuestLink h1 {
-	border-style: solid;
-	font-family: 'Unna', serif;
-	font-style: italic;
-	font-style: underline;
-	color: #e5e8f1;
-	font-size: xxx-large;
-	text-align: center;
+#try-button, #register-button{
+ 	font-family: 'Lato', sans-serif;
+	border-style:solid;
+	width:200px;
+	background-color: #ffffff;
+	border-color:#808288;
+	border-width:2px;
+	border-radius:0px;
+	background-image:none;
 }

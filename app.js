@@ -51,6 +51,10 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+app.post('/likeitem', designerItem.likeitem);
+app.post('/dislikeitem', designerItem.dislikeitem);
+app.post('/likealtitem', altItem.likeitem);
+app.post('/dislikealtitem', altItem.dislikeitem);
 app.get('/designerItem/:id', designerItem.view);
 app.get('/designerItem/:designerID/altItem/:altID', altItem.view);
 app.get('/profile', profile.view);

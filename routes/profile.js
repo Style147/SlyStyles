@@ -3,6 +3,7 @@ var altItemModel = require('../models/altItemModel');
 var userModel = require('../models/userModel');
 
 exports.view = function(req, res) {
+	if(typeof req.session.user != 'undefined'){
 
 	//get the designer item to render
 	userModel.User.find({"_id": req.session.userid}).exec(callback);
@@ -80,6 +81,10 @@ exports.view = function(req, res) {
 				}
 			}
 		}
+	}
+	else{
+		res.render('index');
+	}
 	}
 
 //this is exactly the same as view except it renders profile_expmt

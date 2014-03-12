@@ -5,6 +5,7 @@ var userModel = require('../models/userModel');
 
 
 exports.view = function(req, res) {
+	if(typeof req.session.user != 'undefined'){
 	
 	userModel.User.find({'_id':req.session.userid}).exec(callback);
 	function callback(err, userInfo){
@@ -18,6 +19,10 @@ exports.view = function(req, res) {
 		 console.log(userinfo);
 
 		 res.render('settings', toPass);
+	}
+	}
+	else{
+		res.render('index');
 	}
 	
 }
