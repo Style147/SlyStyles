@@ -88,11 +88,11 @@
 
 										{{#if altItem.liked}}
 										<p>
-											<a href="/aunlike/{{altItem._id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{altItem.likes}}</h4>
+											<a href="#" class="altunlikeable" id="{{altItem._id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{altItem.likes}}</h4>
 										</p>
 										{{else}}
 										<p>
-											<a href="/alike/{{altItem._id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h4>{{altItem.likes}}</h4>
+											<a href="#" class="altlikeable" id="{{altItem._id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h4>{{altItem.likes}}</h4>
 										</p>
 										{{/if}}
 									</td>
@@ -103,6 +103,8 @@
 
 	</div>
 </div>
+
+<script src="/js/ajaxlikes.js"></script>
 
 <script>
 		/*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -162,11 +162,13 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
 										{{#if liked}}
 										<p>
-											<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{likes}}</h4>
+											<a href="#" class="unlikeable" id="{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a>
+											<h4>{{likes}}</h4>
 										</p>
 										{{else}}
 										<p>
-											<a href="/dlike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h4>{{likes}}</h4>
+											<a href="#" class="likeable" id="{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a>
+											<h4>{{likes}}</h4>
 										</p>
 										{{/if}}
 									</td>
@@ -234,6 +236,7 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 	<script src="/js/jquery.validate.js"></script>
 	<script src="/js/jquery.validate.min.js"></script>
 	<script src="/js/formValidator.js"></script>
+	<script src="/js/ajaxlikes.js"></script>
 	
 	<script>
 	/*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
