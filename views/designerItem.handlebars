@@ -43,9 +43,6 @@
 									<a href="/profile" target="_self" class="t-head front-like"><i class="fa fa-angle-left red"></i>&nbsp;  {{user.name}}</a>
 								</li>
 								<li>
-									<a href="/settings" target="_self" class="t-head front-like"><i class="fa fa-angle-left red"></i>&nbsp; SETTINGS</a>
-								</li>
-								<li>
 									<a href="/logout" target="_self" class="t-head front-like"><i class="fa fa-angle-left red"></i>&nbsp; LOGOUT</a>
 								</li>
 							</ul>
@@ -91,17 +88,18 @@
 							<td class="front-like">
 					{{#if designerItem.liked}}
 					<p>
-						<a href="#" class="unlikeable" id="{{designerItem._id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{designerItem.likes}}</h4>
+						<a href="#" class="unlikeable inlikes" id="{{designerItem._id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h4 class="deslikes">{{designerItem.likes}}</h4>
 					</p>
 					{{else}}
 					<p>
-					<a href="#" class="likeable" id="{{designerItem._id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h4>
+					<a href="#" class="likeable inlikes" id="{{designerItem._id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h4 class="deslikes">
 					{{designerItem.likes}}</h4>
+					</p>
+				{{/if}}
 				</td>
 			</tr>
 		</table>
-				</p>
-				{{/if}}
+				
 			</div>
 			<p class="tags">tags: {{#each designerItem.tags}}<a href="/tag/{{.}}">{{.}} </a>{{/each}}</p>
 		</div>
