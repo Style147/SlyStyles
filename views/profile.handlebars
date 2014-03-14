@@ -22,6 +22,7 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/experiment.js"></script>
+	<script src="/js/ajaxlikes.js"></script>
 
 	<nav class="navbar navbar-inverse navbar-default navbar-fixed-top navbar-inner" role="navigation" id="top">
 		<div class="container" >
@@ -98,7 +99,7 @@
 										<h5 class="item-price">${{price}}</h5></a>
 									</td>
 									<td class="front-like">
-										<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h5>{{likes}}</h5>
+										<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{likes}}</h4>
 									</td>
 								</tr>
 							</table>
@@ -120,7 +121,7 @@
 										</td>
 										<td class="front-like">
 											<p>
-												<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h5>{{likes}}</h5>
+												<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{likes}}</h4>
 											</p>
 										</td>
 									</tr>
@@ -151,11 +152,11 @@
 												{{#if liked}}
 												<p>
 													<p>
-														<a href="/dunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h5>{{likes}}</h5>
+														<a href="#" id='{{_id}}' class='unlikeable'><i class="fa fa-heart fa-2x liked"> </i></a><h4>{{likes}}</h4>
 													</p>
 													<p>
 														{{else}}
-														<a href="/dlike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h5>{{likes}}</h5>
+														<a href="#" id='{{_id}}' class='likeable'><i class="fa fa-heart fa-2x unliked"> </i></a><h4>{{likes}}</h4>
 													</p>
 													{{/if}}
 												</td>
@@ -180,11 +181,11 @@
 													<td class="front-like">
 														{{#if liked}}
 														<p>
-															<a href="/aunlike/{{_id}}"><i class="fa fa-heart fa-2x liked"> </i></a><h5>{{likes}}</h5>
+															<a href="#" class="altunlikeable" id='{{_id}}'><i class="fa fa-heart fa-2x liked"> </i></a><h5>{{likes}}</h5>
 														</p>
 														<p>
 															{{else}}
-															<a href="/alike/{{_id}}"><i class="fa fa-heart fa-2x unliked"> </i></a><h5>{{likes}}</h5>
+															<a href="#" class="altlikeable" id='{{_id}}'><i class="fa fa-heart fa-2x unliked"> </i></a><h5>{{likes}}</h5>
 														</p>
 														{{/if}}
 													</td>
